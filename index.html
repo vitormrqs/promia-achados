@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PromIA — Cupons e achadinhos da Shopee e do Mercado Livre</title>
+<meta name="description" content="O PromIA é um grupo grátis com achadinhos e cupons da Shopee e do Mercado Livre, monitorados e selecionados manualmente pra garantir a melhor oferta.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand:#EFE6D4;
+    --sand-deep:#E4D6B9;
+    --ink:#2B2118;
+    --bark:#4A3627;
+    --clay:#A8552B;
+    --shopee:#EE4D2D;
+    --ml:#FFE600;
+    --ml-ink:#5C4A00;
+    --paper:#FBF7EE;
+    --line: rgba(43,33,24,0.12);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--sand);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .noise{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:0.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index:999;
+    mix-blend-mode:multiply;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(239,230,212,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px;
+    max-width:1080px; margin:0 auto;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.15rem;
+  }
+  .logo img{
+    width:36px; height:36px;
+    border-radius:50%;
+    object-fit:cover;
+  }
+  .nav-cta{
+    background:var(--bark);
+    color:var(--paper);
+    padding:10px 18px;
+    border-radius:100px;
+    font-size:0.9rem;
+    font-weight:600;
+    text-decoration:none;
+    transition:transform .15s ease, background .15s ease;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{ background:var(--clay); transform:translateY(-1px);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:76px 0 48px;
+    position:relative;
+    overflow:hidden;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:6px 14px;
+    border-radius:100px;
+    color:var(--bark);
+    margin-bottom:22px;
+  }
+  .eyebrow .p{color:var(--shopee); font-weight:600;}
+  .eyebrow .m{color:var(--ml-ink); font-weight:600;}
+  .hero h1{
+    font-size:clamp(2.1rem, 5.4vw, 3.6rem);
+    line-height:1.06;
+    max-width:14ch;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--clay);
+  }
+  .hero p.lead{
+    margin-top:20px;
+    font-size:1.15rem;
+    max-width:46ch;
+    color:var(--bark);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap:48px;
+    align-items:center;
+  }
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+  }
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--bark);
+    color:var(--paper);
+    padding:16px 26px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:1rem;
+    text-decoration:none;
+    margin-top:28px;
+    box-shadow:0 6px 0 rgba(43,33,24,0.18);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 8px 0 rgba(43,33,24,0.18);}
+  .btn-primary:active{ transform:translateY(1px); box-shadow:0 3px 0 rgba(43,33,24,0.18);}
+  .trust-line{
+    margin-top:14px;
+    font-size:0.85rem;
+    color:var(--bark);
+    opacity:0.75;
+  }
+
+  /* ---------- DEMO / SIGNATURE ELEMENT ---------- */
+  .phone{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:18px;
+    box-shadow: 0 24px 60px -30px rgba(43,33,24,0.45);
+    position:relative;
+  }
+  .phone-head{
+    display:flex; align-items:center; gap:10px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:14px;
+  }
+  .phone-avatar{
+    width:34px;height:34px;border-radius:50%;
+    background:linear-gradient(135deg, var(--shopee), var(--ml));
+    display:flex;align-items:center;justify-content:center;
+    font-size:1rem;
+  }
+  .phone-head .who{font-weight:600; font-size:0.92rem;}
+  .phone-head .sub{font-size:0.75rem; color:var(--bark); opacity:0.7;}
+  .bubble{
+    border-radius:14px;
+    padding:11px 14px;
+    font-size:0.9rem;
+    margin-bottom:10px;
+    max-width:88%;
+    animation: rise .5s ease both;
+  }
+  .bubble.me{
+    background:var(--sand-deep);
+    margin-left:auto;
+    border-bottom-right-radius:4px;
+  }
+  .bubble.bot{
+    background:#fff;
+    border:1px solid var(--line);
+    border-bottom-left-radius:4px;
+  }
+  .bubble .cmd{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    color:var(--clay);
+  }
+  .deal-card{
+    display:flex; gap:10px; align-items:center;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:8px 10px;
+    margin-top:8px;
+  }
+  .deal-card .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    font-weight:600;
+    padding:3px 7px;
+    border-radius:6px;
+    color:#fff;
+  }
+  .tag.shopee{background:var(--shopee);}
+  .tag.ml{background:var(--ml); color:var(--ml-ink);}
+  .deal-card .info{font-size:0.82rem;}
+  .deal-card .price{font-weight:700; font-family:'IBM Plex Mono', monospace;}
+  @keyframes rise{
+    from{opacity:0; transform:translateY(6px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  .bubble:nth-child(2){animation-delay:.1s;}
+  .bubble:nth-child(3){animation-delay:.25s;}
+  .bubble:nth-child(4){animation-delay:.4s;}
+
+  .hero-badge{
+    position:absolute;
+    width:96px; height:96px;
+    border-radius:50%;
+    object-fit:cover;
+    top:-30px; right:-14px;
+    box-shadow:0 14px 30px -10px rgba(43,33,24,0.5);
+    border:3px solid var(--paper);
+    transform:rotate(8deg);
+  }
+  @media (max-width:520px){
+    .hero-badge{width:72px; height:72px; top:-22px; right:-10px;}
+  }
+  .note-box{
+    margin-top:44px;
+    display:flex; gap:14px; align-items:flex-start;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-left:3px solid var(--clay);
+    border-radius:12px;
+    padding:16px 20px;
+    font-size:0.88rem;
+    color:var(--bark);
+    max-width:64ch;
+  }
+  .note-ic{ font-size:1.1rem; line-height:1; margin-top:1px;}
+
+  .strip{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--sand-deep);
+  }
+  .strip .wrap{
+    display:flex; flex-wrap:wrap; gap:28px;
+    padding:20px 24px;
+    justify-content:space-between;
+  }
+  .strip-item{
+    display:flex; align-items:center; gap:10px;
+    font-size:0.92rem;
+    font-weight:500;
+    color:var(--bark);
+  }
+  .strip-item b{font-family:'Fraunces', serif; font-weight:700; color:var(--ink);}
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding:76px 0; }
+  .section-head{
+    max-width:56ch;
+    margin-bottom:44px;
+  }
+  .section-head .kicker{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--clay);
+    display:block;
+    margin-bottom:10px;
+  }
+  .section-head h2{
+    font-size:clamp(1.7rem, 3.4vw, 2.3rem);
+  }
+  .section-head p{
+    margin-top:14px;
+    color:var(--bark);
+    font-size:1.02rem;
+  }
+
+  .cards3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  @media (max-width:860px){ .cards3{grid-template-columns:1fr;} }
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:26px;
+  }
+  .card .ic{
+    width:44px; height:44px;
+    border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem;
+    margin-bottom:16px;
+    background:var(--sand-deep);
+  }
+  .card h3{ font-size:1.1rem; margin-bottom:8px;}
+  .card p{ color:var(--bark); font-size:0.94rem; margin:0;}
+  .card .platforms{
+    margin-top:14px;
+    display:flex; gap:6px;
+  }
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    font-weight:600;
+    padding:3px 9px;
+    border-radius:100px;
+  }
+  .chip.shopee{background:rgba(238,77,45,0.12); color:var(--shopee);}
+  .chip.ml{background:rgba(255,230,0,0.25); color:var(--ml-ink);}
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+    position:relative;
+  }
+  @media (max-width:860px){ .steps{grid-template-columns:1fr; gap:28px;} }
+  .step{
+    padding:0 22px 0 0;
+    position:relative;
+  }
+  .step:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    top:20px; right:0;
+    width:1px; height:calc(100% - 20px);
+    background:var(--line);
+  }
+  @media (max-width:860px){ .step:not(:last-child)::after{display:none;} }
+  .step .num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:2.1rem;
+    color:var(--clay);
+    display:block;
+    margin-bottom:10px;
+  }
+  .step h3{ font-size:1.05rem; margin-bottom:8px;}
+  .step p{ color:var(--bark); font-size:0.92rem;}
+  .step .cmdline{
+    display:inline-block;
+    margin-top:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    background:var(--ink);
+    color:var(--sand);
+    padding:6px 10px;
+    border-radius:8px;
+  }
+
+  /* ---------- CTA FINAL ---------- */
+  /* ---------- EXEMPLOS (posts) ---------- */
+  .examples{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+  @media (max-width:760px){ .examples{grid-template-columns:1fr;} }
+  .post{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .post-head{
+    display:flex; align-items:center; gap:8px;
+    padding:12px 16px;
+    border-bottom:1px solid var(--line);
+    font-size:0.82rem;
+    font-weight:600;
+    color:var(--clay);
+  }
+  .post-head .pdot{
+    width:8px; height:8px; border-radius:50%;
+    background:var(--clay);
+  }
+  .post-thumb{
+    height:170px;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, var(--sand-deep), var(--sand));
+    overflow:hidden;
+  }
+  .post-thumb img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .post-body{ padding:16px; }
+  .post-body h4{
+    font-family:'Fraunces', serif;
+    font-size:0.98rem;
+    font-weight:600;
+    margin:0 0 10px;
+    line-height:1.3;
+  }
+  .price-line{ font-size:0.85rem; }
+  .price-line .was{
+    text-decoration:line-through;
+    color:var(--bark);
+    opacity:0.6;
+    margin-right:6px;
+  }
+  .price-line .now{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:700;
+    font-size:1.15rem;
+    color:var(--clay);
+    display:block;
+    margin-top:2px;
+  }
+  .post-coupons{ margin-top:10px; display:flex; flex-direction:column; gap:6px; }
+  .post-coupon{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    background:var(--sand-deep);
+    border-radius:8px;
+    padding:6px 10px;
+    display:flex; justify-content:space-between; gap:8px;
+  }
+  .post-coupon b{ color:var(--ink); }
+  .post-link{
+    margin-top:12px;
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:0.8rem;
+    font-weight:600;
+    color:var(--bark);
+  }
+
+  .coupon-post{
+    background:linear-gradient(135deg, #FFF3B0, var(--ml));
+    border-radius:16px;
+    padding:22px;
+    color:var(--ml-ink);
+    position:relative;
+    overflow:hidden;
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:22px;
+    align-items:center;
+  }
+  @media (max-width:600px){
+    .coupon-post{ grid-template-columns:1fr; }
+  }
+  .coupon-post img{
+    width:100%;
+    border-radius:12px;
+    display:block;
+    box-shadow:0 10px 24px -10px rgba(43,33,24,0.4);
+  }
+  .coupon-post .pin{
+    position:absolute; top:16px; right:18px;
+    font-size:1.3rem;
+    transform:rotate(20deg);
+  }
+  .coupon-post .badge{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    font-weight:700;
+    background:rgba(43,33,24,0.85);
+    color:#fff;
+    padding:4px 10px;
+    border-radius:100px;
+    display:inline-block;
+    margin-bottom:12px;
+  }
+  .coupon-post h4{
+    font-family:'Fraunces', serif;
+    font-size:1.2rem;
+    margin:0 0 6px;
+  }
+  .coupon-post p{ margin:0; font-size:0.92rem; }
+  .coupon-post .cta-mini{
+    display:inline-block;
+    margin-top:14px;
+    background:var(--ink);
+    color:#fff;
+    padding:8px 16px;
+    border-radius:100px;
+    font-size:0.82rem;
+    font-weight:600;
+  }
+
+  .savings-stat{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:24px;
+    align-items:center;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:22px 26px;
+    margin-top:20px;
+  }
+  @media (max-width:600px){
+    .savings-stat{ grid-template-columns:1fr; }
+  }
+  .savings-stat img{
+    width:100%;
+    border-radius:12px;
+    display:block;
+    border:1px solid var(--line);
+  }
+  .savings-stat .big{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:2rem;
+    color:var(--clay);
+  }
+  .savings-stat .detail{ font-size:0.88rem; color:var(--bark); margin-top:4px;}
+  .savings-stat .detail .was{ text-decoration:line-through; opacity:0.6; }
+
+  .cta-final{
+    background:var(--bark);
+    color:var(--paper);
+    border-radius:28px;
+    padding:56px 40px;
+    text-align:center;
+    margin:0 24px;
+    max-width:1032px;
+    margin-inline:auto;
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-final::before{
+    content:"";
+    position:absolute;
+    width:280px; height:280px;
+    background:var(--shopee);
+    filter:blur(80px);
+    opacity:0.35;
+    top:-100px; left:-60px;
+  }
+  .cta-final::after{
+    content:"";
+    position:absolute;
+    width:280px; height:280px;
+    background:var(--ml);
+    filter:blur(90px);
+    opacity:0.28;
+    bottom:-110px; right:-60px;
+  }
+  .cta-final h2{
+    font-size:clamp(1.7rem,3.6vw,2.4rem);
+    color:var(--paper);
+    position:relative;
+  }
+  .cta-final p{
+    margin-top:14px;
+    color:var(--sand-deep);
+    position:relative;
+    max-width:44ch;
+    margin-inline:auto;
+  }
+  .cta-final .btn-primary{
+    background:var(--paper);
+    color:var(--ink);
+    box-shadow:0 6px 0 rgba(0,0,0,0.25);
+    position:relative;
+  }
+
+  footer{
+    padding:36px 24px 44px;
+    text-align:center;
+    font-size:0.85rem;
+    color:var(--bark);
+    opacity:0.75;
+  }
+  footer a{ text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<header>
+  <nav>
+    <div class="logo"><img src="assets/logo.png" alt="PromIA"> PromIA</div>
+    <a class="nav-cta" href="https://chat.whatsapp.com/D9WP1ZRPdM7AyRFibJAsS7" target="_blank" rel="noopener">Entrar no grupo</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">🔥 grupo de promoções <span class="p">Shopee</span> &amp; <span class="m">Mercado Livre</span></span>
+        <h1>Cupons e achadinhos <em>garimpados</em> pra você</h1>
+        <p class="lead">Cupons sempre disponíveis da Shopee e do Mercado Livre, além do top 3 das melhores opções pra cada produto buscado.</p>
+        <a class="btn-primary" href="https://chat.whatsapp.com/D9WP1ZRPdM7AyRFibJAsS7" target="_blank" rel="noopener">Entrar no grupo grátis →</a>
+        <div class="trust-line">🔒 Grupo gratuito • Saia quando quiser</div>
+      </div>
+
+      <div class="phone">
+        <img class="hero-badge" src="assets/logo.png" alt="Selo PromIA — Achados de Ofertas">
+        <div class="phone-head">
+          <div class="phone-avatar">🔥</div>
+          <div>
+            <div class="who">PromIA</div>
+            <div class="sub">achados de ofertas</div>
+          </div>
+        </div>
+        <div class="bubble bot">
+          📦 <b>Achadinho do dia</b>
+          <div class="deal-card">
+            <span class="tag shopee">Shopee</span>
+            <div class="info">Fone Bluetooth TWS <span class="price">R$ 39,90</span></div>
+          </div>
+          <div class="deal-card">
+            <span class="tag ml">ML</span>
+            <div class="info">Cupom 15% OFF <span class="price">MLPROMO15</span></div>
+          </div>
+        </div>
+        <div class="bubble bot" style="font-size:0.8rem; color:var(--bark);">✅ conferido manualmente antes de postar</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <div class="strip-item">🕵️ curadoria <b>manual</b></div>
+      <div class="strip-item">🛒 <b>Shopee</b> &amp; <b>Mercado Livre</b></div>
+      <div class="strip-item">🎟️ cupons <b>verificados</b></div>
+      <div class="strip-item">🎯 <b>top 3</b> por produto</div>
+    </div>
+  </div>
+
+  <section id="como-funciona">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Como funciona</span>
+        <h2>Curadoria de verdade, não só um repost</h2>
+        <p>Cada oferta passa por um processo antes de chegar até você.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>Monitoramento na plataforma</h3>
+          <p>Preços e cupons da Shopee e do Mercado Livre são acompanhados continuamente.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>Seleção manual</h3>
+          <p>Cada achadinho é conferido à mão antes de ir pro grupo — só entra o que realmente vale a pena.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>Você recebe no grupo</h3>
+          <p>Entre e receba os melhores achados assim que forem publicados, sem precisar procurar nada.</p>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <span class="note-ic">ℹ️</span>
+        <div>
+          <b>Sobre o comando <span class="mono">#procura</span>:</b>
+          por enquanto ele funciona apenas no contato direto com o administrador, não dentro do grupo. O grupo é focado nos achadinhos e cupons selecionados — o <span class="mono">#procura</span> é um recurso à parte.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="recursos" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">O que você recebe</span>
+        <h2>Cupons sempre disponíveis e o top 3 de cada busca</h2>
+        <p>Cada recurso existe pra te poupar tempo garimpando oferta — e dinheiro na hora de comprar.</p>
+      </div>
+      <div class="cards3">
+        <div class="card">
+          <div class="ic">🎟️</div>
+          <h3>Cupons sempre disponíveis</h3>
+          <p>Códigos de desconto da Shopee e do Mercado Livre, mantidos ativos e atualizados no grupo.</p>
+          <div class="platforms">
+            <span class="chip shopee">Shopee</span>
+            <span class="chip ml">Mercado Livre</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ic">🎯</div>
+          <h3>Top 3 por produto</h3>
+          <p>Pra cada produto buscado, você recebe as 3 melhores opções encontradas — sem precisar comparar sozinho.</p>
+        </div>
+        <div class="card">
+          <div class="ic">✅</div>
+          <h3>Seleção manual</h3>
+          <p>Cada achadinho é conferido à mão antes de ir pro grupo, pra garantir que vale a pena.</p>
+        </div>
+      </div>
+
+      <div class="note-box" style="margin-top:22px;">
+        <span class="note-ic">ℹ️</span>
+        <div>
+          <b>Ressalva sobre o top 3:</b> se um produto da Shopee não aparecer na busca, é porque o resultado encontrado não foi relevante o suficiente pra valer a pena compartilhar.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="exemplos">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Exemplos reais</span>
+        <h2>É assim que as ofertas chegam pra você</h2>
+        <p>Cada post traz o preço original, o preço com desconto e, quando existe, o cupom já pronto pra usar.</p>
+      </div>
+
+      <div class="examples">
+        <div class="post">
+          <div class="post-head"><span class="pdot"></span>PromIA · anúncio</div>
+          <div class="post-thumb"><img src="assets/exemplos/kit-ferramentas.png" alt="Kit Ferramentas 46 Peças"></div>
+          <div class="post-body">
+            <h4>Kit Ferramentas 46 Peças com Soquetes e Chaves</h4>
+            <div class="price-line">
+              <span class="was">de R$ 43,80</span>
+              <span class="now">por R$ 27,15</span>
+            </div>
+            <div class="post-link">🔗 Link direto pro produto</div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-head"><span class="pdot"></span>PromIA · anúncio</div>
+          <div class="post-thumb"><img src="assets/exemplos/tenis.png" alt="Tênis Branco Feminino"></div>
+          <div class="post-body">
+            <h4>Tênis Branco Feminino pra Caminhada e Academia</h4>
+            <div class="price-line">
+              <span class="was">de R$ 172,33</span>
+              <span class="now">por R$ 81,95</span>
+            </div>
+            <div class="post-coupons">
+              <div class="post-coupon"><span>Cupom <b>SALDACASA</b></span><span>R$ 61,46</span></div>
+              <div class="post-coupon"><span>Cupom <b>MEUSMIMOS</b></span><span>R$ 69,66</span></div>
+            </div>
+            <div class="post-link">🔗 Link direto pro produto</div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-head"><span class="pdot"></span>PromIA · anúncio</div>
+          <div class="post-thumb"><img src="assets/exemplos/perfume.png" alt="Perfume Importado"></div>
+          <div class="post-body">
+            <h4>Perfume Importado Eau de Toilette 200ml</h4>
+            <div class="price-line">
+              <span class="was">de R$ 1.029,00</span>
+              <span class="now">por R$ 478,00</span>
+            </div>
+            <div class="post-link">🔗 Link direto pro produto</div>
+          </div>
+        </div>
+
+        <div class="post">
+          <div class="post-head"><span class="pdot"></span>PromIA · anúncio</div>
+          <div class="post-thumb"><img src="assets/exemplos/monitor.png" alt="Monitor Portátil 15,6 polegadas"></div>
+          <div class="post-body">
+            <h4>Monitor Portátil 15,6" Full HD IPS Ultra Slim</h4>
+            <div class="price-line">
+              <span class="now">R$ 303,00</span>
+            </div>
+            <div class="post-coupons">
+              <div class="post-coupon"><span>Cupom <b>MEUSMIMOS</b></span><span>aplicado</span></div>
+            </div>
+            <div class="post-link">🔗 Link direto pro produto</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="coupon-post" style="margin-top:22px;">
+        <img src="assets/exemplos/cupom-ml.png" alt="Post de cupom Mercado Livre fixado no grupo">
+        <div>
+          <span class="pin">📌</span>
+          <span class="badge">NOVO CUPOM</span>
+          <h4>Cupom Mercado Livre</h4>
+          <p>15% OFF acima de R$79, máx R$60 — ative direto no link fixado no grupo.</p>
+          <span class="cta-mini">Ative aqui →</span>
+        </div>
+      </div>
+
+      <div class="note-box" style="margin-top:22px;">
+        <span class="note-ic">📌</span>
+        <div>
+          <b>Cupons sempre fixados:</b> todo cupom novo fica fixado no topo do grupo. Quando possível, ele já entra automaticamente na conta do produto — sem precisar copiar código ou aplicar nada na mão.
+        </div>
+      </div>
+
+      <div class="savings-stat">
+        <img src="assets/exemplos/carrinho.png" alt="Carrinho de compras com cupom aplicado, economia de R$80">
+        <div>
+          <div class="big">51% OFF</div>
+          <div class="detail">Exemplo real de compra que economizou <b>51%</b> combinando os cupons do grupo com uma oferta disponível — de <span class="was">R$ 324,22</span> por <b>R$ 159,81</b>.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="entrar">
+    <div class="cta-final">
+      <h2>Pronto pra parar de pagar mais caro?</h2>
+      <p>Entre no grupo agora e receba os próximos achadinhos e cupons selecionados a dedo.</p>
+      <a class="btn-primary" href="https://chat.whatsapp.com/D9WP1ZRPdM7AyRFibJAsS7" target="_blank" rel="noopener">Entrar no grupo grátis →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 PromIA — cupons e achadinhos da Shopee e do Mercado Livre, selecionados a dedo.
+</footer>
+
+</body>
+</html>
