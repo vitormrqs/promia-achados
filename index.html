@@ -384,81 +384,21 @@
   }
 
   /* ---------- CTA FINAL ---------- */
-  /* ---------- EXEMPLOS (posts) ---------- */
+  /* ---------- EXEMPLOS (grade de fotos) ---------- */
   .examples{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:20px;
+    gap:16px;
   }
-  @media (max-width:760px){ .examples{grid-template-columns:1fr;} }
-  .post{
-    background:var(--paper);
-    border:1px solid var(--line);
-    border-radius:16px;
-    overflow:hidden;
-  }
-  .post-head{
-    display:flex; align-items:center; gap:8px;
-    padding:12px 16px;
-    border-bottom:1px solid var(--line);
-    font-size:0.82rem;
-    font-weight:600;
-    color:var(--clay);
-  }
-  .post-head .pdot{
-    width:8px; height:8px; border-radius:50%;
-    background:var(--clay);
-  }
-  .post-thumb{
-    height:170px;
-    display:flex; align-items:center; justify-content:center;
-    background:linear-gradient(135deg, var(--sand-deep), var(--sand));
-    overflow:hidden;
-  }
-  .post-thumb img{
-    width:100%; height:100%;
+  @media (max-width:640px){ .examples{grid-template-columns:1fr;} }
+  .examples img{
+    width:100%;
+    aspect-ratio:3/4;
     object-fit:cover;
+    object-position:top;
+    border-radius:16px;
+    border:1px solid var(--line);
     display:block;
-  }
-  .post-body{ padding:16px; }
-  .post-body h4{
-    font-family:'Fraunces', serif;
-    font-size:0.98rem;
-    font-weight:600;
-    margin:0 0 10px;
-    line-height:1.3;
-  }
-  .price-line{ font-size:0.85rem; }
-  .price-line .was{
-    text-decoration:line-through;
-    color:var(--bark);
-    opacity:0.6;
-    margin-right:6px;
-  }
-  .price-line .now{
-    font-family:'IBM Plex Mono', monospace;
-    font-weight:700;
-    font-size:1.15rem;
-    color:var(--clay);
-    display:block;
-    margin-top:2px;
-  }
-  .post-coupons{ margin-top:10px; display:flex; flex-direction:column; gap:6px; }
-  .post-coupon{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.78rem;
-    background:var(--sand-deep);
-    border-radius:8px;
-    padding:6px 10px;
-    display:flex; justify-content:space-between; gap:8px;
-  }
-  .post-coupon b{ color:var(--ink); }
-  .post-link{
-    margin-top:12px;
-    display:inline-flex; align-items:center; gap:6px;
-    font-size:0.8rem;
-    font-weight:600;
-    color:var(--bark);
   }
 
   .coupon-post{
@@ -740,63 +680,10 @@
       </div>
 
       <div class="examples">
-        <div class="post">
-          <div class="post-head"><span class="pdot"></span>PromIA · anúncio</div>
-          <div class="post-thumb"><img src="assets/exemplos/kit-ferramentas.png" alt="Kit Ferramentas 46 Peças"></div>
-          <div class="post-body">
-            <h4>Kit Ferramentas 46 Peças com Soquetes e Chaves</h4>
-            <div class="price-line">
-              <span class="was">de R$ 43,80</span>
-              <span class="now">por R$ 27,15</span>
-            </div>
-            <div class="post-link">🔗 Link direto pro produto</div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-head"><span class="pdot"></span>PromIA · anúncio</div>
-          <div class="post-thumb"><img src="assets/exemplos/tenis.png" alt="Tênis Branco Feminino"></div>
-          <div class="post-body">
-            <h4>Tênis Branco Feminino pra Caminhada e Academia</h4>
-            <div class="price-line">
-              <span class="was">de R$ 172,33</span>
-              <span class="now">por R$ 81,95</span>
-            </div>
-            <div class="post-coupons">
-              <div class="post-coupon"><span>Cupom <b>SALDACASA</b></span><span>R$ 61,46</span></div>
-              <div class="post-coupon"><span>Cupom <b>MEUSMIMOS</b></span><span>R$ 69,66</span></div>
-            </div>
-            <div class="post-link">🔗 Link direto pro produto</div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-head"><span class="pdot"></span>PromIA · anúncio</div>
-          <div class="post-thumb"><img src="assets/exemplos/perfume.png" alt="Perfume Importado"></div>
-          <div class="post-body">
-            <h4>Perfume Importado Eau de Toilette 200ml</h4>
-            <div class="price-line">
-              <span class="was">de R$ 1.029,00</span>
-              <span class="now">por R$ 478,00</span>
-            </div>
-            <div class="post-link">🔗 Link direto pro produto</div>
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="post-head"><span class="pdot"></span>PromIA · anúncio</div>
-          <div class="post-thumb"><img src="assets/exemplos/monitor.png" alt="Monitor Portátil 15,6 polegadas"></div>
-          <div class="post-body">
-            <h4>Monitor Portátil 15,6" Full HD IPS Ultra Slim</h4>
-            <div class="price-line">
-              <span class="now">R$ 303,00</span>
-            </div>
-            <div class="post-coupons">
-              <div class="post-coupon"><span>Cupom <b>MEUSMIMOS</b></span><span>aplicado</span></div>
-            </div>
-            <div class="post-link">🔗 Link direto pro produto</div>
-          </div>
-        </div>
+        <img src="assets/exemplos/kit-ferramentas.png" alt="Anúncio: Kit Ferramentas 46 Peças, de R$43,80 por R$27,15">
+        <img src="assets/exemplos/tenis.png" alt="Anúncio: Tênis Branco Feminino, de R$172,33 por R$81,95, cupons SALDACASA e MEUSMIMOS">
+        <img src="assets/exemplos/perfume.png" alt="Anúncio: Perfume Importado 200ml, de R$1.029,00 por R$478,00">
+        <img src="assets/exemplos/monitor.png" alt="Anúncio: Monitor Portátil 15,6 polegadas, R$303,00 com cupom MEUSMIMOS">
       </div>
 
       <div class="coupon-post" style="margin-top:22px;">
