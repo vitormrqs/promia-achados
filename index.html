@@ -21,6 +21,9 @@
     --ml-ink:#5C4A00;
     --paper:#FBF7EE;
     --line: rgba(43,33,24,0.12);
+    --wa-green:#93E3B0;
+    --wa-green-dark:#5FC98A;
+    --wa-ink:#0F3D24;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -84,8 +87,8 @@
     object-fit:cover;
   }
   .nav-cta{
-    background:var(--bark);
-    color:var(--paper);
+    background:var(--wa-green);
+    color:var(--wa-ink);
     padding:10px 18px;
     border-radius:100px;
     font-size:0.9rem;
@@ -94,7 +97,7 @@
     transition:transform .15s ease, background .15s ease;
     white-space:nowrap;
   }
-  .nav-cta:hover{ background:var(--clay); transform:translateY(-1px);}
+  .nav-cta:hover{ background:var(--wa-green-dark); transform:translateY(-1px);}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -143,19 +146,19 @@
   }
   .btn-primary{
     display:inline-flex; align-items:center; gap:10px;
-    background:var(--bark);
-    color:var(--paper);
+    background:var(--wa-green);
+    color:var(--wa-ink);
     padding:16px 26px;
     border-radius:100px;
     font-weight:600;
     font-size:1rem;
     text-decoration:none;
     margin-top:28px;
-    box-shadow:0 6px 0 rgba(43,33,24,0.18);
-    transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:0 6px 0 rgba(15,61,36,0.22);
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
   }
-  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 8px 0 rgba(43,33,24,0.18);}
-  .btn-primary:active{ transform:translateY(1px); box-shadow:0 3px 0 rgba(43,33,24,0.18);}
+  .btn-primary:hover{ background:var(--wa-green-dark); transform:translateY(-2px); box-shadow:0 8px 0 rgba(15,61,36,0.22);}
+  .btn-primary:active{ transform:translateY(1px); box-shadow:0 3px 0 rgba(15,61,36,0.22);}
   .trust-line{
     margin-top:14px;
     font-size:0.85rem;
@@ -481,7 +484,7 @@
   /* ---------- EXEMPLOS (grade de fotos) ---------- */
   .examples-layout{
     display:grid;
-    grid-template-columns:2fr 1fr;
+    grid-template-columns:1.6fr 1fr;
     gap:16px;
     align-items:stretch;
   }
@@ -515,7 +518,7 @@
     background:var(--paper);
     border:1px solid var(--line);
     border-radius:16px;
-    padding:18px;
+    padding:12px;
     display:flex;
     flex-direction:column;
   }
@@ -525,7 +528,7 @@
     text-transform:uppercase;
     letter-spacing:0.05em;
     color:var(--clay);
-    margin-bottom:10px;
+    margin:4px 0 10px 4px;
   }
   .followers-proof .thumb{
     flex:1;
@@ -534,18 +537,21 @@
     border:1px solid var(--line);
     background:var(--sand-deep);
     display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding:6px;
+    min-height:340px;
   }
   .followers-proof .thumb img{
     width:100%;
     height:100%;
-    object-fit:cover;
-    object-position:top;
+    object-fit:contain;
     display:block;
   }
   .followers-proof .detail{
     font-size:0.84rem;
     color:var(--bark);
-    margin-top:12px;
+    margin:12px 4px 4px;
   }
   .followers-proof .detail .was{ text-decoration:line-through; opacity:0.6; }
   .followers-proof .detail b{ color:var(--clay); }
@@ -604,6 +610,31 @@
     font-weight:600;
   }
 
+  .coupon-alert{
+    background:linear-gradient(135deg, #FFF6D6, var(--sand-deep));
+    border:1px solid rgba(92,74,0,0.18);
+    border-left:5px solid var(--ml-ink);
+    border-radius:16px;
+    padding:20px 24px;
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    margin-bottom:36px;
+  }
+  .coupon-alert .ic{ font-size:1.6rem; line-height:1; }
+  .coupon-alert b{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-size:1.05rem;
+    color:var(--ml-ink);
+    margin-bottom:4px;
+  }
+  .coupon-alert p{
+    margin:0;
+    font-size:0.94rem;
+    color:var(--bark);
+  }
+
   .cta-final{
     background:var(--bark);
     color:var(--paper);
@@ -650,11 +681,12 @@
     margin-inline:auto;
   }
   .cta-final .btn-primary{
-    background:var(--paper);
-    color:var(--ink);
+    background:var(--wa-green);
+    color:var(--wa-ink);
     box-shadow:0 6px 0 rgba(0,0,0,0.25);
     position:relative;
   }
+  .cta-final .btn-primary:hover{ background:var(--wa-green-dark); }
 
   footer{
     padding:36px 24px 44px;
@@ -776,6 +808,14 @@
 
   <section id="recursos" style="padding-top:0;">
     <div class="wrap">
+      <div class="coupon-alert">
+        <span class="ic">📌</span>
+        <div>
+          <b>Cupons sempre fixados</b>
+          <p>Todo cupom novo fica fixado no topo do grupo. Quando possível, ele já entra automaticamente na conta do produto — sem precisar copiar código ou aplicar nada na mão.</p>
+        </div>
+      </div>
+
       <div class="section-head">
         <span class="kicker">O que você recebe</span>
         <h2>Cupons sempre disponíveis e o top 3 de cada busca</h2>
@@ -845,12 +885,6 @@
         </div>
       </div>
 
-      <div class="note-box" style="margin-top:22px;">
-        <span class="note-ic">📌</span>
-        <div>
-          <b>Cupons sempre fixados:</b> todo cupom novo fica fixado no topo do grupo. Quando possível, ele já entra automaticamente na conta do produto — sem precisar copiar código ou aplicar nada na mão.
-        </div>
-      </div>
     </div>
   </section>
 
