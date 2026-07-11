@@ -8,19 +8,23 @@
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --sand:#EFE6D4;
-    --sand-deep:#E4D6B9;
-    --ink:#2B2118;
-    --bark:#4A3627;
-    --clay:#A8552B;
+    --bg:#F4F6FA;
+    --surface:#FFFFFF;
+    --ink:#0B1F3A;
+    --navy:#0C2545;
+    --navy-deep:#081A33;
+    --blue:#2657D9;
+    --blue-deep:#1B44B0;
+    --blue-light:#E9EFFC;
+    --blue-mist:#DCE6FA;
+    --muted:#5A6B84;
+    --line: rgba(11,31,58,0.10);
     --shopee:#EE4D2D;
     --ml:#FFE600;
     --ml-ink:#5C4A00;
-    --paper:#FBF7EE;
-    --line: rgba(43,33,24,0.12);
     --wa-green:#93E3B0;
     --wa-green-dark:#5FC98A;
     --wa-ink:#0F3D24;
@@ -29,111 +33,119 @@
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--sand);
+    background:var(--bg);
     color:var(--ink);
-    font-family:'Work Sans', sans-serif;
+    font-family:'Inter', sans-serif;
     -webkit-font-smoothing:antialiased;
-    line-height:1.5;
+    line-height:1.55;
   }
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
   }
   h1,h2,h3{
-    font-family:'Fraunces', serif;
-    font-weight:600;
+    font-family:'Sora', sans-serif;
+    font-weight:700;
     margin:0;
     letter-spacing:-0.01em;
   }
-  .mono{
-    font-family:'IBM Plex Mono', monospace;
-  }
-  a{color:inherit;}
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
   .wrap{
-    max-width:1080px;
+    max-width:1120px;
     margin:0 auto;
     padding:0 24px;
   }
-  .noise{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:0.05;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    z-index:999;
-    mix-blend-mode:multiply;
-  }
 
-  /* ---------- NAV ---------- */
+  /* ---------- HEADER ---------- */
   header{
     position:sticky; top:0; z-index:50;
-    background:rgba(239,230,212,0.86);
-    backdrop-filter:blur(8px);
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
   nav{
     display:flex; align-items:center; justify-content:space-between;
-    padding:16px 24px;
-    max-width:1080px; margin:0 auto;
+    padding:14px 24px;
+    max-width:1120px; margin:0 auto;
   }
   .logo{
     display:flex; align-items:center; gap:10px;
-    font-family:'Fraunces', serif;
+    font-family:'Sora', sans-serif;
     font-weight:700;
-    font-size:1.15rem;
+    font-size:1.1rem;
+    color:var(--ink);
   }
   .logo img{
-    width:36px; height:36px;
+    width:34px; height:34px;
     border-radius:50%;
     object-fit:cover;
+  }
+  .nav-links{
+    display:flex; align-items:center; gap:30px;
+    list-style:none; margin:0; padding:0;
+  }
+  .nav-links a{
+    font-size:0.9rem;
+    font-weight:500;
+    color:var(--muted);
+    text-decoration:none;
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{ color:var(--blue-deep); }
+  @media (max-width:760px){
+    .nav-links{ display:none; }
   }
   .nav-cta{
     background:var(--wa-green);
     color:var(--wa-ink);
     padding:10px 18px;
-    border-radius:100px;
-    font-size:0.9rem;
+    border-radius:8px;
+    font-size:0.88rem;
     font-weight:600;
     text-decoration:none;
     transition:transform .15s ease, background .15s ease;
     white-space:nowrap;
   }
-  .nav-cta:hover{ background:var(--wa-green-dark); transform:translateY(-1px);}
+  .nav-cta:hover{ background:var(--wa-green-dark); }
 
   /* ---------- HERO ---------- */
   .hero{
-    padding:76px 0 48px;
+    padding:72px 0 56px;
     position:relative;
     overflow:hidden;
+    background:
+      radial-gradient(600px 300px at 85% -10%, var(--blue-mist), transparent),
+      var(--bg);
   }
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
     font-family:'IBM Plex Mono', monospace;
-    font-size:0.78rem;
+    font-size:0.76rem;
     letter-spacing:0.04em;
     text-transform:uppercase;
-    background:var(--paper);
+    background:var(--surface);
     border:1px solid var(--line);
     padding:6px 14px;
     border-radius:100px;
-    color:var(--bark);
+    color:var(--blue-deep);
     margin-bottom:22px;
+    box-shadow:0 1px 2px rgba(11,31,58,0.04);
   }
-  .eyebrow .p{color:var(--shopee); font-weight:600;}
-  .eyebrow .m{color:var(--ml-ink); font-weight:600;}
   .hero h1{
-    font-size:clamp(2.1rem, 5.4vw, 3.6rem);
-    line-height:1.06;
-    max-width:14ch;
+    font-size:clamp(2.1rem, 5vw, 3.4rem);
+    line-height:1.1;
+    max-width:15ch;
+    color:var(--ink);
   }
   .hero h1 em{
-    font-style:italic;
-    color:var(--clay);
+    font-style:normal;
+    color:var(--blue-deep);
   }
   .hero p.lead{
     margin-top:20px;
-    font-size:1.15rem;
-    max-width:46ch;
-    color:var(--bark);
+    font-size:1.12rem;
+    max-width:44ch;
+    color:var(--muted);
   }
   .hero-grid{
     display:grid;
@@ -148,31 +160,30 @@
     display:inline-flex; align-items:center; gap:10px;
     background:var(--wa-green);
     color:var(--wa-ink);
-    padding:16px 26px;
-    border-radius:100px;
+    padding:15px 26px;
+    border-radius:10px;
     font-weight:600;
-    font-size:1rem;
+    font-size:0.98rem;
     text-decoration:none;
     margin-top:28px;
-    box-shadow:0 6px 0 rgba(15,61,36,0.22);
+    box-shadow:0 8px 20px -8px rgba(15,61,36,0.4);
     transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
   }
-  .btn-primary:hover{ background:var(--wa-green-dark); transform:translateY(-2px); box-shadow:0 8px 0 rgba(15,61,36,0.22);}
-  .btn-primary:active{ transform:translateY(1px); box-shadow:0 3px 0 rgba(15,61,36,0.22);}
+  .btn-primary:hover{ background:var(--wa-green-dark); transform:translateY(-2px); }
+  .btn-primary:active{ transform:translateY(0); }
   .trust-line{
     margin-top:14px;
     font-size:0.85rem;
-    color:var(--bark);
-    opacity:0.75;
+    color:var(--muted);
   }
 
-  /* ---------- DEMO / SIGNATURE ELEMENT ---------- */
+  /* ---------- DEMO PHONE ---------- */
   .phone{
-    background:var(--paper);
+    background:var(--surface);
     border:1px solid var(--line);
-    border-radius:22px;
+    border-radius:20px;
     padding:18px;
-    box-shadow: 0 24px 60px -30px rgba(43,33,24,0.45);
+    box-shadow: 0 24px 60px -30px rgba(11,31,58,0.35);
     position:relative;
   }
   .phone-head{
@@ -183,38 +194,26 @@
   }
   .phone-avatar{
     width:34px;height:34px;border-radius:50%;
-    background:linear-gradient(135deg, var(--shopee), var(--ml));
+    background:linear-gradient(135deg, var(--blue), var(--blue-deep));
     display:flex;align-items:center;justify-content:center;
     font-size:1rem;
   }
   .phone-head .who{font-weight:600; font-size:0.92rem;}
-  .phone-head .sub{font-size:0.75rem; color:var(--bark); opacity:0.7;}
+  .phone-head .sub{font-size:0.75rem; color:var(--muted);}
   .bubble{
-    border-radius:14px;
+    border-radius:12px;
     padding:11px 14px;
     font-size:0.9rem;
     margin-bottom:10px;
-    max-width:88%;
-    animation: rise .5s ease both;
-  }
-  .bubble.me{
-    background:var(--sand-deep);
-    margin-left:auto;
-    border-bottom-right-radius:4px;
+    max-width:92%;
   }
   .bubble.bot{
-    background:#fff;
+    background:var(--blue-light);
     border:1px solid var(--line);
-    border-bottom-left-radius:4px;
-  }
-  .bubble .cmd{
-    font-family:'IBM Plex Mono', monospace;
-    font-weight:600;
-    color:var(--clay);
   }
   .deal-card{
     display:flex; gap:10px; align-items:center;
-    background:var(--paper);
+    background:var(--surface);
     border:1px solid var(--line);
     border-radius:10px;
     padding:8px 10px;
@@ -231,204 +230,89 @@
   .tag.shopee{background:var(--shopee);}
   .tag.ml{background:var(--ml); color:var(--ml-ink);}
   .deal-card .info{font-size:0.82rem;}
-  .deal-card .price{font-weight:700; font-family:'IBM Plex Mono', monospace;}
-  @keyframes rise{
-    from{opacity:0; transform:translateY(6px);}
-    to{opacity:1; transform:translateY(0);}
-  }
-  .bubble:nth-child(2){animation-delay:.1s;}
-  .bubble:nth-child(3){animation-delay:.25s;}
-  .bubble:nth-child(4){animation-delay:.4s;}
-
+  .deal-card .price{font-weight:700; font-family:'IBM Plex Mono', monospace; color:var(--blue-deep);}
   .hero-badge{
     position:absolute;
-    width:96px; height:96px;
+    width:88px; height:88px;
     border-radius:50%;
     object-fit:cover;
-    top:-30px; right:-14px;
-    box-shadow:0 14px 30px -10px rgba(43,33,24,0.5);
-    border:3px solid var(--paper);
-    transform:rotate(8deg);
+    top:-26px; right:-12px;
+    box-shadow:0 14px 30px -10px rgba(11,31,58,0.4);
+    border:3px solid var(--surface);
   }
   @media (max-width:520px){
-    .hero-badge{width:72px; height:72px; top:-22px; right:-10px;}
+    .hero-badge{width:68px; height:68px; top:-18px; right:-8px;}
   }
-  /* ---------- BUSCA / COMANDO ---------- */
-  .search-spotlight{
-    background:var(--ink);
-    color:var(--sand);
-    border-radius:24px;
-    padding:44px 40px;
-    margin-top:44px;
-    position:relative;
-    overflow:hidden;
-  }
-  .search-spotlight::before{
-    content:"";
-    position:absolute;
-    width:260px; height:260px;
-    background:var(--shopee);
-    filter:blur(90px);
-    opacity:0.3;
-    top:-90px; right:-40px;
-  }
-  .search-spotlight::after{
-    content:"";
-    position:absolute;
-    width:220px; height:220px;
-    background:var(--ml);
-    filter:blur(90px);
-    opacity:0.22;
-    bottom:-80px; left:-40px;
-  }
-  .search-spotlight .inner{
-    position:relative;
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:36px;
-    align-items:center;
-  }
-  @media (max-width:820px){
-    .search-spotlight .inner{ grid-template-columns:1fr; }
-  }
-  .search-spotlight .eyebrow2{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.76rem;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    color:var(--ml);
-    display:block;
-    margin-bottom:12px;
-  }
-  .search-spotlight h2{
-    color:var(--paper);
-    font-size:clamp(1.5rem, 3vw, 2rem);
-    margin-bottom:14px;
-  }
-  .search-spotlight p{
-    color:var(--sand-deep);
-    font-size:1rem;
-    margin:0 0 20px;
-    max-width:46ch;
-  }
-  .command-tag{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:1.05rem;
-    font-weight:600;
-    background:var(--paper);
-    color:var(--clay);
-    padding:12px 20px;
-    border-radius:12px;
-    border:1px dashed var(--clay);
-  }
-  .search-spotlight .admin-note{
-    margin-top:16px;
-    font-size:0.82rem;
-    color:var(--sand-deep);
-    opacity:0.75;
-  }
-  .search-perks{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-  }
-  .search-perk{
-    display:flex;
-    gap:12px;
-    align-items:flex-start;
-    background:rgba(251,247,238,0.06);
-    border:1px solid rgba(251,247,238,0.14);
-    border-radius:14px;
-    padding:14px 16px;
-  }
-  .search-perk .ic{ font-size:1.2rem; line-height:1; }
-  .search-perk b{ color:var(--paper); font-size:0.92rem; display:block; margin-bottom:2px;}
-  .search-perk span.desc{ font-size:0.84rem; color:var(--sand-deep); }
 
-  .note-box{
-    margin-top:44px;
-    display:flex; gap:14px; align-items:flex-start;
-    border-left:3px solid var(--clay);
-    padding:4px 0 4px 20px;
-    font-size:0.92rem;
-    font-style:italic;
-    color:var(--bark);
-    width:100%;
-  }
-  .note-ic{ font-size:1.1rem; line-height:1.4; margin-top:1px; font-style:normal;}
-  .note-box b{ font-style:normal; }
-
+  /* ---------- STRIP ---------- */
   .strip{
     border-top:1px solid var(--line);
     border-bottom:1px solid var(--line);
-    background:var(--sand-deep);
+    background:var(--surface);
   }
   .strip .wrap{
     display:flex; flex-wrap:wrap; gap:28px;
-    padding:20px 24px;
+    padding:18px 24px;
     justify-content:space-between;
   }
   .strip-item{
     display:flex; align-items:center; gap:10px;
-    font-size:0.92rem;
+    font-size:0.9rem;
     font-weight:500;
-    color:var(--bark);
+    color:var(--muted);
   }
-  .strip-item b{font-family:'Fraunces', serif; font-weight:700; color:var(--ink);}
+  .strip-item b{ color:var(--ink); font-weight:700;}
 
   /* ---------- SECTIONS ---------- */
-  section{ padding:76px 0; }
+  section{ padding:72px 0; }
   .section-head{
     max-width:56ch;
     margin-bottom:44px;
   }
   .section-head .kicker{
     font-family:'IBM Plex Mono', monospace;
-    font-size:0.78rem;
+    font-size:0.76rem;
     text-transform:uppercase;
     letter-spacing:0.06em;
-    color:var(--clay);
+    color:var(--blue-deep);
     display:block;
     margin-bottom:10px;
   }
   .section-head h2{
-    font-size:clamp(1.7rem, 3.4vw, 2.3rem);
+    font-size:clamp(1.6rem, 3.2vw, 2.2rem);
+    color:var(--ink);
   }
   .section-head p{
     margin-top:14px;
-    color:var(--bark);
+    color:var(--muted);
     font-size:1.02rem;
   }
 
   .cards3{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:22px;
+    gap:20px;
   }
   @media (max-width:860px){ .cards3{grid-template-columns:1fr;} }
   .card{
-    background:var(--paper);
+    background:var(--surface);
     border:1px solid var(--line);
-    border-radius:16px;
+    border-radius:14px;
     padding:26px;
+    transition:box-shadow .2s ease, transform .2s ease;
   }
+  .card:hover{ box-shadow:0 16px 32px -20px rgba(11,31,58,0.25); transform:translateY(-2px); }
   .card .ic{
-    width:44px; height:44px;
-    border-radius:12px;
+    width:42px; height:42px;
+    border-radius:10px;
     display:flex; align-items:center; justify-content:center;
-    font-size:1.3rem;
+    font-size:1.25rem;
     margin-bottom:16px;
-    background:var(--sand-deep);
+    background:var(--blue-light);
   }
-  .card h3{ font-size:1.1rem; margin-bottom:8px;}
-  .card p{ color:var(--bark); font-size:0.94rem; margin:0;}
-  .card .platforms{
-    margin-top:14px;
-    display:flex; gap:6px;
-  }
+  .card h3{ font-size:1.08rem; margin-bottom:8px; color:var(--ink);}
+  .card p{ color:var(--muted); font-size:0.94rem; margin:0;}
+  .card .platforms{ margin-top:14px; display:flex; gap:6px; }
   .chip{
     font-family:'IBM Plex Mono', monospace;
     font-size:0.7rem;
@@ -436,8 +320,30 @@
     padding:3px 9px;
     border-radius:100px;
   }
-  .chip.shopee{background:rgba(238,77,45,0.12); color:var(--shopee);}
-  .chip.ml{background:rgba(255,230,0,0.25); color:var(--ml-ink);}
+  .chip.shopee{background:rgba(238,77,45,0.1); color:var(--shopee);}
+  .chip.ml{background:rgba(255,230,0,0.22); color:var(--ml-ink);}
+
+  /* ---------- CUPOM DESTAQUE ---------- */
+  .coupon-alert{
+    background:var(--blue-light);
+    border:1px solid var(--blue-mist);
+    border-left:4px solid var(--blue);
+    border-radius:14px;
+    padding:20px 24px;
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    margin-bottom:36px;
+  }
+  .coupon-alert .ic{ font-size:1.5rem; line-height:1; }
+  .coupon-alert b{
+    display:block;
+    font-family:'Sora', sans-serif;
+    font-size:1.02rem;
+    color:var(--blue-deep);
+    margin-bottom:4px;
+  }
+  .coupon-alert p{ margin:0; font-size:0.94rem; color:var(--muted); }
 
   /* ---------- HOW IT WORKS ---------- */
   .steps{
@@ -447,40 +353,128 @@
     position:relative;
   }
   @media (max-width:860px){ .steps{grid-template-columns:1fr; gap:28px;} }
-  .step{
-    padding:0 22px 0 0;
-    position:relative;
-  }
+  .step{ padding:0 22px 0 0; position:relative; }
   .step:not(:last-child)::after{
     content:"";
     position:absolute;
-    top:20px; right:0;
-    width:1px; height:calc(100% - 20px);
+    top:6px; right:0;
+    width:1px; height:calc(100% - 6px);
     background:var(--line);
   }
   @media (max-width:860px){ .step:not(:last-child)::after{display:none;} }
   .step .num{
-    font-family:'Fraunces', serif;
-    font-style:italic;
-    font-size:2.1rem;
-    color:var(--clay);
+    font-family:'Sora', sans-serif;
+    font-weight:800;
+    font-size:1.9rem;
+    color:var(--blue-mist);
     display:block;
     margin-bottom:10px;
   }
-  .step h3{ font-size:1.05rem; margin-bottom:8px;}
-  .step p{ color:var(--bark); font-size:0.92rem;}
+  .step h3{ font-size:1.02rem; margin-bottom:8px; color:var(--ink);}
+  .step p{ color:var(--muted); font-size:0.92rem; }
   .step .cmdline{
     display:inline-block;
     margin-top:10px;
     font-family:'IBM Plex Mono', monospace;
     font-size:0.8rem;
-    background:var(--ink);
-    color:var(--sand);
+    background:var(--navy);
+    color:var(--bg);
     padding:6px 10px;
     border-radius:8px;
   }
 
-  /* ---------- CTA FINAL ---------- */
+  /* ---------- BUSCA / COMANDO ---------- */
+  .search-spotlight{
+    background:var(--navy);
+    color:var(--bg);
+    border-radius:22px;
+    padding:44px 40px;
+    margin-top:44px;
+    position:relative;
+    overflow:hidden;
+  }
+  .search-spotlight::before{
+    content:"";
+    position:absolute;
+    width:280px; height:280px;
+    background:var(--blue);
+    filter:blur(100px);
+    opacity:0.35;
+    top:-100px; right:-50px;
+  }
+  .search-spotlight .inner{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:36px;
+    align-items:center;
+  }
+  @media (max-width:820px){
+    .search-spotlight .inner{ grid-template-columns:1fr; }
+  }
+  .search-spotlight .eyebrow2{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.74rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--wa-green);
+    display:block;
+    margin-bottom:12px;
+  }
+  .search-spotlight h2{
+    color:#fff;
+    font-size:clamp(1.5rem, 3vw, 1.9rem);
+    margin-bottom:14px;
+  }
+  .search-spotlight p{
+    color:rgba(244,246,250,0.75);
+    font-size:0.98rem;
+    margin:0 0 20px;
+    max-width:44ch;
+  }
+  .command-tag{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1.02rem;
+    font-weight:600;
+    background:var(--surface);
+    color:var(--blue-deep);
+    padding:12px 20px;
+    border-radius:10px;
+    border:1px dashed var(--blue);
+  }
+  .search-spotlight .admin-note{
+    margin-top:16px;
+    font-size:0.8rem;
+    color:rgba(244,246,250,0.65);
+  }
+  .search-perks{ display:flex; flex-direction:column; gap:12px; margin-bottom:20px;}
+  .search-perk{
+    display:flex; gap:12px; align-items:flex-start;
+    background:rgba(244,246,250,0.06);
+    border:1px solid rgba(244,246,250,0.14);
+    border-radius:12px;
+    padding:13px 16px;
+  }
+  .search-perk .ic{ font-size:1.15rem; line-height:1; }
+  .search-perk b{ color:#fff; font-size:0.9rem; display:block; margin-bottom:2px;}
+  .search-perk span.desc{ font-size:0.82rem; color:rgba(244,246,250,0.68); }
+  .demo-video{
+    width:100%;
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid rgba(244,246,250,0.18);
+    box-shadow:0 24px 50px -20px rgba(0,0,0,0.5);
+    background:#000;
+  }
+  .demo-video video{ width:100%; display:block; }
+  .demo-caption{
+    text-align:center;
+    font-size:0.78rem;
+    color:rgba(244,246,250,0.55);
+    margin-top:10px;
+  }
+
   /* ---------- EXEMPLOS (grade de fotos) ---------- */
   .examples-layout{
     display:grid;
@@ -499,43 +493,41 @@
   @media (max-width:420px){ .examples{grid-template-columns:1fr;} }
   .examples .thumb{
     aspect-ratio:3/4;
-    border-radius:16px;
+    border-radius:14px;
     border:1px solid var(--line);
-    background:var(--paper);
+    background:var(--surface);
     overflow:hidden;
     display:flex;
     align-items:center;
     justify-content:center;
   }
   .examples .thumb img{
-    width:100%;
-    height:100%;
+    width:100%; height:100%;
     object-fit:contain;
     display:block;
   }
-
   .followers-proof{
-    background:var(--paper);
+    background:var(--surface);
     border:1px solid var(--line);
-    border-radius:16px;
+    border-radius:14px;
     padding:12px;
     display:flex;
     flex-direction:column;
   }
   .followers-proof .cap{
     font-family:'IBM Plex Mono', monospace;
-    font-size:0.76rem;
+    font-size:0.74rem;
     text-transform:uppercase;
     letter-spacing:0.05em;
-    color:var(--clay);
+    color:var(--blue-deep);
     margin:4px 0 10px 4px;
   }
   .followers-proof .thumb{
     flex:1;
-    border-radius:12px;
+    border-radius:10px;
     overflow:hidden;
     border:1px solid var(--line);
-    background:var(--sand-deep);
+    background:var(--blue-light);
     display:flex;
     align-items:flex-start;
     justify-content:center;
@@ -543,22 +535,21 @@
     min-height:340px;
   }
   .followers-proof .thumb img{
-    width:100%;
-    height:100%;
+    width:100%; height:100%;
     object-fit:contain;
     display:block;
   }
   .followers-proof .detail{
     font-size:0.84rem;
-    color:var(--bark);
+    color:var(--muted);
     margin:12px 4px 4px;
   }
   .followers-proof .detail .was{ text-decoration:line-through; opacity:0.6; }
-  .followers-proof .detail b{ color:var(--clay); }
+  .followers-proof .detail b{ color:var(--blue-deep); }
 
   .coupon-post{
     background:linear-gradient(135deg, #FFF3B0, var(--ml));
-    border-radius:16px;
+    border-radius:14px;
     padding:22px;
     color:var(--ml-ink);
     position:relative;
@@ -568,81 +559,60 @@
     gap:22px;
     align-items:center;
   }
-  @media (max-width:600px){
-    .coupon-post{ grid-template-columns:1fr; }
-  }
+  @media (max-width:600px){ .coupon-post{ grid-template-columns:1fr; } }
   .coupon-post img{
     width:100%;
-    border-radius:12px;
+    border-radius:10px;
     display:block;
-    box-shadow:0 10px 24px -10px rgba(43,33,24,0.4);
+    box-shadow:0 10px 24px -10px rgba(11,31,58,0.4);
   }
-  .coupon-post .pin{
-    position:absolute; top:16px; right:18px;
-    font-size:1.3rem;
-    transform:rotate(20deg);
-  }
+  .coupon-post .pin{ position:absolute; top:16px; right:18px; font-size:1.3rem; }
   .coupon-post .badge{
     font-family:'IBM Plex Mono', monospace;
     font-size:0.72rem;
     font-weight:700;
-    background:rgba(43,33,24,0.85);
+    background:rgba(11,31,58,0.85);
     color:#fff;
     padding:4px 10px;
     border-radius:100px;
     display:inline-block;
     margin-bottom:12px;
   }
-  .coupon-post h4{
-    font-family:'Fraunces', serif;
-    font-size:1.2rem;
-    margin:0 0 6px;
-  }
+  .coupon-post h4{ font-family:'Sora', sans-serif; font-size:1.15rem; margin:0 0 6px; }
   .coupon-post p{ margin:0; font-size:0.92rem; }
   .coupon-post .cta-mini{
     display:inline-block;
     margin-top:14px;
-    background:var(--ink);
+    background:var(--navy);
     color:#fff;
     padding:8px 16px;
-    border-radius:100px;
+    border-radius:8px;
     font-size:0.82rem;
     font-weight:600;
   }
 
-  .coupon-alert{
-    background:linear-gradient(135deg, #FFF6D6, var(--sand-deep));
-    border:1px solid rgba(92,74,0,0.18);
-    border-left:5px solid var(--ml-ink);
-    border-radius:16px;
-    padding:20px 24px;
-    display:flex;
-    gap:16px;
-    align-items:flex-start;
-    margin-bottom:36px;
+  .note-box{
+    margin-top:44px;
+    display:flex; gap:14px; align-items:flex-start;
+    border-left:3px solid var(--blue);
+    padding:4px 0 4px 20px;
+    font-size:0.92rem;
+    font-style:italic;
+    color:var(--muted);
+    width:100%;
   }
-  .coupon-alert .ic{ font-size:1.6rem; line-height:1; }
-  .coupon-alert b{
-    display:block;
-    font-family:'Fraunces', serif;
-    font-size:1.05rem;
-    color:var(--ml-ink);
-    margin-bottom:4px;
-  }
-  .coupon-alert p{
-    margin:0;
-    font-size:0.94rem;
-    color:var(--bark);
-  }
+  .note-ic{ font-size:1.1rem; line-height:1.4; margin-top:1px; font-style:normal;}
+  .note-box b{ font-style:normal; color:var(--ink); }
 
+  /* ---------- CTA FINAL ---------- */
   .cta-final{
-    background:var(--bark);
-    color:var(--paper);
-    border-radius:28px;
+    background:var(--navy);
+    color:var(--bg);
+    border-radius:26px;
     padding:56px 40px;
     text-align:center;
     margin:0 24px;
-    max-width:1032px;
+    max-width:1072px;
     margin-inline:auto;
     position:relative;
     overflow:hidden;
@@ -651,59 +621,101 @@
     content:"";
     position:absolute;
     width:280px; height:280px;
-    background:var(--shopee);
-    filter:blur(80px);
-    opacity:0.35;
+    background:var(--blue);
+    filter:blur(90px);
+    opacity:0.4;
     top:-100px; left:-60px;
   }
   .cta-final::after{
     content:"";
     position:absolute;
-    width:280px; height:280px;
-    background:var(--ml);
-    filter:blur(90px);
-    opacity:0.28;
-    bottom:-110px; right:-60px;
+    width:240px; height:240px;
+    background:var(--wa-green);
+    filter:blur(100px);
+    opacity:0.2;
+    bottom:-100px; right:-50px;
   }
   .cta-final h2{
-    font-size:clamp(1.7rem,3.6vw,2.4rem);
-    color:var(--paper);
+    font-size:clamp(1.6rem,3.4vw,2.2rem);
+    color:#fff;
     position:relative;
   }
-  .cta-final h2 b{
-    color:var(--ml);
-  }
+  .cta-final h2 b{ color:var(--wa-green); }
   .cta-final p{
     margin-top:14px;
-    color:var(--sand-deep);
+    color:rgba(244,246,250,0.75);
     position:relative;
     max-width:44ch;
     margin-inline:auto;
   }
-  .cta-final .btn-primary{
-    background:var(--wa-green);
-    color:var(--wa-ink);
-    box-shadow:0 6px 0 rgba(0,0,0,0.25);
-    position:relative;
-  }
-  .cta-final .btn-primary:hover{ background:var(--wa-green-dark); }
+  .cta-final .btn-primary{ position:relative; }
 
+  /* ---------- FOOTER ---------- */
   footer{
-    padding:36px 24px 44px;
-    text-align:center;
-    font-size:0.85rem;
-    color:var(--bark);
-    opacity:0.75;
+    background:var(--navy-deep);
+    color:rgba(244,246,250,0.7);
+    padding:56px 24px 28px;
+    margin-top:80px;
   }
-  footer a{ text-decoration:underline; }
+  .footer-grid{
+    max-width:1120px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:36px;
+    border-bottom:1px solid rgba(244,246,250,0.12);
+  }
+  @media (max-width:700px){
+    .footer-grid{ grid-template-columns:1fr; gap:32px; }
+  }
+  .footer-brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Sora', sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    color:#fff;
+    margin-bottom:12px;
+  }
+  .footer-brand img{ width:32px; height:32px; border-radius:50%; object-fit:cover;}
+  .footer-col p{ font-size:0.88rem; line-height:1.6; max-width:32ch; }
+  .footer-col h4{
+    font-family:'Sora', sans-serif;
+    font-size:0.86rem;
+    color:#fff;
+    margin-bottom:14px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .footer-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+  .footer-col ul a{
+    font-size:0.9rem;
+    text-decoration:none;
+    color:rgba(244,246,250,0.7);
+    transition:color .15s ease;
+  }
+  .footer-col ul a:hover{ color:#fff; }
+  .footer-bottom{
+    max-width:1120px;
+    margin:0 auto;
+    padding-top:22px;
+    display:flex; flex-wrap:wrap; gap:12px;
+    justify-content:space-between;
+    font-size:0.8rem;
+    color:rgba(244,246,250,0.5);
+  }
 </style>
 </head>
 <body>
-<div class="noise"></div>
 
 <header>
   <nav>
     <div class="logo"><img src="assets/logo.png" alt="PromIA"> PromIA</div>
+    <ul class="nav-links">
+      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#recursos">Recursos</a></li>
+      <li><a href="#exemplos">Exemplos</a></li>
+    </ul>
     <a class="nav-cta" href="https://chat.whatsapp.com/D9WP1ZRPdM7AyRFibJAsS7" target="_blank" rel="noopener">Entrar no grupo</a>
   </nav>
 </header>
@@ -712,7 +724,7 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow">🔥 grupo de promoções <span class="p">Shopee</span> &amp; <span class="m">Mercado Livre</span></span>
+        <span class="eyebrow">🔥 grupo de promoções <span style="color:var(--shopee); font-weight:600;">Shopee</span> &amp; <span style="color:var(--ml-ink); font-weight:600;">Mercado Livre</span></span>
         <h1>Cupons e achadinhos <em>garimpados</em> pra você</h1>
         <p class="lead">Cupons sempre disponíveis da Shopee e do Mercado Livre, além do top 3 das melhores opções pra cada produto buscado.</p>
         <a class="btn-primary" href="https://chat.whatsapp.com/D9WP1ZRPdM7AyRFibJAsS7" target="_blank" rel="noopener">Entrar no grupo grátis →</a>
@@ -739,7 +751,7 @@
             <div class="info">Cupom 15% OFF <span class="price">MLPROMO15</span></div>
           </div>
         </div>
-        <div class="bubble bot" style="font-size:0.8rem; color:var(--bark);">✅ conferido manualmente antes de postar</div>
+        <div class="bubble bot" style="font-size:0.8rem; color:var(--muted); background:transparent; border:none;">✅ conferido manualmente antes de postar</div>
       </div>
     </div>
   </section>
@@ -748,8 +760,8 @@
     <div class="wrap">
       <div class="strip-item">🕵️ curadoria <b>manual</b></div>
       <div class="strip-item">🛒 <b>Shopee</b> &amp; <b>Mercado Livre</b></div>
-      <div class="strip-item">🎟️ cupons <b>verificados</b></div>
       <div class="strip-item">🎯 <b>top 3</b> por produto</div>
+      <div class="strip-item">🎟️ cupons <b>verificados</b></div>
     </div>
   </div>
 
@@ -786,20 +798,27 @@
             <p>Use o comando abaixo e receba, na hora, as opções mais relevantes pro que você procura — já com os cupons existentes aplicados no produto.</p>
             <div class="command-tag">#procura <span style="opacity:0.6; font-weight:400;">nome do produto</span></div>
             <div class="admin-note">💬 Disponível por enquanto só no contato direto com o administrador, não dentro do grupo.</div>
+
+            <div class="search-perks" style="margin-top:24px;">
+              <div class="search-perk">
+                <span class="ic">🔎</span>
+                <div><b>Busca o item pra você</b><span class="desc">Digite o que precisa e o PromIA procura na Shopee e no Mercado Livre.</span></div>
+              </div>
+              <div class="search-perk">
+                <span class="ic">🎟️</span>
+                <div><b>Já traz o cupom aplicado</b><span class="desc">Quando existe cupom pro produto, ele já vem embutido no resultado.</span></div>
+              </div>
+              <div class="search-perk">
+                <span class="ic">🎯</span>
+                <div><b>Opções mais relevantes</b><span class="desc">Sem lista infinita — só o que realmente faz sentido pra sua busca.</span></div>
+              </div>
+            </div>
           </div>
-          <div class="search-perks">
-            <div class="search-perk">
-              <span class="ic">🔎</span>
-              <div><b>Busca o item pra você</b><span class="desc">Digite o que precisa e o PromIA procura na Shopee e no Mercado Livre.</span></div>
+          <div>
+            <div class="demo-video">
+              <video src="assets/gif/procura-demo.mp4" poster="assets/gif/poster.jpg" autoplay muted loop playsinline controls></video>
             </div>
-            <div class="search-perk">
-              <span class="ic">🎟️</span>
-              <div><b>Já traz o cupom aplicado</b><span class="desc">Quando existe cupom pro produto, ele já vem embutido no resultado.</span></div>
-            </div>
-            <div class="search-perk">
-              <span class="ic">🎯</span>
-              <div><b>Opções mais relevantes</b><span class="desc">Sem lista infinita — só o que realmente faz sentido pra sua busca.</span></div>
-            </div>
+            <div class="demo-caption">Exemplo real de uma busca feita com o PromIA</div>
           </div>
         </div>
       </div>
@@ -884,7 +903,6 @@
           <span class="cta-mini">Ative aqui →</span>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -898,7 +916,32 @@
 </main>
 
 <footer>
-  © 2026 PromIA — cupons e achadinhos da Shopee e do Mercado Livre, selecionados a dedo.
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand"><img src="assets/logo.png" alt="PromIA"> PromIA</div>
+      <p>Cupons e achadinhos da Shopee e do Mercado Livre, monitorados e selecionados manualmente pra garantir a melhor oferta.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#exemplos">Exemplos</a></li>
+        <li><a href="https://chat.whatsapp.com/D9WP1ZRPdM7AyRFibJAsS7" target="_blank" rel="noopener">Entrar no grupo</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Sobre</h4>
+      <ul>
+        <li><a href="https://www.shopee.com.br" target="_blank" rel="noopener">Shopee</a></li>
+        <li><a href="https://www.mercadolivre.com.br" target="_blank" rel="noopener">Mercado Livre</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PromIA — cupons e achadinhos selecionados a dedo.</span>
+    <span>Projeto independente, sem vínculo oficial com Shopee ou Mercado Livre.</span>
+  </div>
 </footer>
 
 </body>
