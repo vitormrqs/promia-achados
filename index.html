@@ -581,14 +581,17 @@
   .coupon-post h4{ font-family:'Sora', sans-serif; font-size:1.15rem; margin:0 0 6px; }
   .coupon-post p{ margin:0; font-size:0.92rem; }
   .coupon-post .cta-mini{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
     margin-top:14px;
-    background:var(--navy);
-    color:#fff;
-    padding:8px 16px;
-    border-radius:8px;
-    font-size:0.82rem;
+    background:rgba(11,31,58,0.08);
+    color:var(--ml-ink);
+    padding:6px 14px;
+    border-radius:100px;
+    font-size:0.78rem;
     font-weight:600;
+    font-family:'IBM Plex Mono', monospace;
   }
 
   .note-box{
@@ -899,10 +902,13 @@
           <span class="pin">📌</span>
           <span class="badge">NOVO CUPOM</span>
           <h4>Cupom Mercado Livre</h4>
-          <p>15% OFF acima de R$79, máx R$60 — ative direto no link fixado no grupo.</p>
-          <span class="cta-mini">Ative aqui →</span>
+          <p>15% OFF acima de R$79, máx R$60.</p>
+          <span class="cta-mini">📌 Exemplo de mensagem fixada no grupo</span>
         </div>
       </div>
+      <p style="margin-top:14px; font-size:0.88rem; color:var(--muted); max-width:56ch;">
+        É assim que os cupons aparecem pra quem está no grupo: sempre como mensagem <b>pinada</b> no topo, fácil de achar quando precisar.
+      </p>
     </div>
   </section>
 
