@@ -2,7 +2,7 @@
 
 Landing page do PromIA, grupo grátis com cupons e achadinhos garimpados da Shopee e do Mercado Livre. As ofertas são monitoradas na plataforma e passam por seleção manual antes de chegar ao grupo, garantindo o melhor custo-benefício.
 
-🔗 **Site no ar:** https://vitormrqs.github.io/promia-achados/
+🔗 **Site no ar:** https://prom.ia.br
 
 ## O que o site mostra
 
