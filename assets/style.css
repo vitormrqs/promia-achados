@@ -76,7 +76,7 @@ a{color:inherit;}
 /* ---------- HERO ---------- */
 .hero{
   text-align:center;
-  padding:44px 0 40px;
+  padding:52px 0 40px;
   background:radial-gradient(760px 380px at 50% -12%,var(--blue-mist),transparent),var(--bg);
 }
 .hero .eyebrow{
