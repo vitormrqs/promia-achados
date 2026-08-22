@@ -20,7 +20,7 @@
 
 <header class="topbar">
   <div class="inner">
-    <a class="brand brand-logo" href="index.html"><img src="assets/logo-wordmark.png" alt="PromIA — Achados e Ofertas"></a>
+    <a class="brand brand-selo" href="index.html"><img src="assets/logo-selo.png" alt="PromIA — Achados e Ofertas"></a>
   </div>
 </header>
 
@@ -29,10 +29,43 @@
   <!-- ================= HERO ================= -->
   <section class="hero">
     <div class="wrap-narrow">
-      <span class="eyebrow">🟢 Grupo gratuito no WhatsApp</span>
-
       <h1>Achadinhos com <em>descontos reais</em> direto no seu WhatsApp</h1>
       <p class="hero-sub">Entre grátis no grupo e receba as ofertas antes de acabar.</p>
+
+      <!-- ---- Contador de economia (valor base editável em data-base) ---- -->
+      <div class="saved-box">
+        <span class="saved-label">Economizados pelos membros</span>
+        <strong class="saved-value" id="savedValue" data-base="186122.54">R$ 186.122,54</strong>
+      </div>
+
+      <!-- ---- Prova social ao vivo ---- -->
+      <div class="live-block">
+        <span class="live-title">Entradas recentes no grupo</span>
+
+        <div class="join-card in">
+          <span class="av" id="joinAvatar">FL</span>
+          <span class="join-txt"><b id="joinName">Fernanda Lima</b><i>entrou no grupo</i></span>
+          <span class="join-when" id="joinWhen">agora</span>
+        </div>
+
+        <span class="live-pill"><i class="dot"></i> <b id="viewersNum">13</b>&nbsp;pessoas vendo esta página agora</span>
+
+        <div class="slots">
+          <div class="slots-top">
+            <span>Vagas de hoje:</span>
+            <b id="slotsNum">87% preenchidas</b>
+          </div>
+          <span class="slots-bar"><i id="slotsBar" style="width:87%"></i></span>
+        </div>
+      </div>
+
+      <div class="cta-area">
+        <a class="btn-wa" href="https://chat.whatsapp.com/D9WP1ZRPdM7AyRFibJAsS7" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.16 8.16 0 01-1.25-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 012.41 5.83c0 4.54-3.7 8.23-8.25 8.23z"/></svg>
+          Entrar no grupo grátis
+        </a>
+        <span class="trust">Grátis, sem spam — só oferta boa.</span>
+      </div>
 
       <ul class="cat-chips">
         <li>📱 Eletrônicos</li>
@@ -40,38 +73,6 @@
         <li>🛠️ Ferramentas</li>
         <li>🍳 Utensílios</li>
       </ul>
-
-      <div class="cta-area">
-        <a class="btn-wa" href="https://chat.whatsapp.com/D9WP1ZRPdM7AyRFibJAsS7" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.16 8.16 0 01-1.25-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 012.41 5.83c0 4.54-3.7 8.23-8.25 8.23z"/></svg>
-          Entrar no grupo grátis
-        </a>
-        <span class="trust">Sem custo, sem spam — só oferta boa.</span>
-      </div>
-
-      <!-- ---- Contador de economia ---- -->
-      <div class="saved-box">
-        <span class="saved-label">Economizados pelos membros</span>
-        <!-- Valor base editável em data-base (reais) -->
-        <strong class="saved-value" id="savedValue" data-base="186122.54">R$ 186.122,54</strong>
-        <span class="saved-foot"><i class="dot"></i> atualizando em tempo real</span>
-      </div>
-
-      <!-- ---- Prova social ao vivo ---- -->
-      <div class="live-row">
-        <div class="live-join in">
-          <span class="av" id="joinAvatar">A</span>
-          <span class="live-join-txt"><b id="joinName">Ana Paula</b> entrou no grupo</span>
-          <span class="live-when" id="joinWhen">agora</span>
-        </div>
-        <div class="live-badges">
-          <span class="live-pill"><i class="dot"></i> <b id="viewersNum">13</b>&nbsp;pessoas vendo esta página agora</span>
-          <div class="slots">
-            <span class="slots-label">Vagas de hoje: <b id="slotsNum">87%</b> preenchidas</span>
-            <span class="slots-bar"><i id="slotsBar" style="width:87%"></i></span>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -81,8 +82,7 @@
   <section id="ofertas" class="ofertas-sec">
     <div class="wrap">
       <div class="section-head">
-        <span class="kicker">Ofertas recentes no grupo</span>
-        <h2>Exemplos do que cai no grupo todo dia</h2>
+        <h2>Ofertas recentes no grupo</h2>
         <p>Eletrônicos, moda, ferramentas e utensílios garimpados na Shopee e no Mercado Livre — com o cupom já aplicado no preço.</p>
       </div>
 
@@ -90,57 +90,65 @@
         <article class="deal-card" data-min="6">
           <div class="deal-shot"><img src="assets/produtos/monitor.png" alt="Monitor Portátil 15,6 polegadas em oferta com cupom" loading="lazy"></div>
           <div class="deal-body">
-            <span class="deal-cat">Eletrônicos</span>
+            <div class="deal-top">
+              <span class="deal-cat">Eletrônicos</span>
+              <span class="off">-31%</span>
+            </div>
             <h3>Monitor Portátil 15,6"</h3>
+            <span class="deal-time">Postado há <b class="mins">6</b> min</span>
+            <span class="deal-coupon">cupom MEUSMIMOS</span>
             <div class="deal-price">
               <span class="was">R$ 439,99</span>
               <span class="now">R$ 303,00</span>
-              <span class="off">-31%</span>
             </div>
-            <span class="deal-coupon">cupom MEUSMIMOS</span>
-            <span class="deal-time">postado há <b class="mins">6</b> min no grupo</span>
           </div>
         </article>
 
         <article class="deal-card" data-min="18">
           <div class="deal-shot"><img src="assets/produtos/tenis.png" alt="Tênis Branco Feminino em oferta com cupons" loading="lazy"></div>
           <div class="deal-body">
-            <span class="deal-cat">Moda</span>
+            <div class="deal-top">
+              <span class="deal-cat">Moda</span>
+              <span class="off">-52%</span>
+            </div>
             <h3>Tênis Branco Feminino</h3>
+            <span class="deal-time">Postado há <b class="mins">18</b> min</span>
             <div class="deal-price">
               <span class="was">R$ 172,33</span>
               <span class="now">R$ 81,95</span>
-              <span class="off">-52%</span>
             </div>
-            <span class="deal-time">postado há <b class="mins">18</b> min no grupo</span>
           </div>
         </article>
 
         <article class="deal-card" data-min="27">
           <div class="deal-shot"><img src="assets/produtos/kit-ferramentas.png" alt="Kit de Ferramentas 46 peças em oferta" loading="lazy"></div>
           <div class="deal-body">
-            <span class="deal-cat">Ferramentas</span>
+            <div class="deal-top">
+              <span class="deal-cat">Ferramentas</span>
+              <span class="off">-38%</span>
+            </div>
             <h3>Kit Ferramentas 46 peças</h3>
+            <span class="deal-time">Postado há <b class="mins">27</b> min</span>
             <div class="deal-price">
               <span class="was">R$ 43,80</span>
               <span class="now">R$ 27,15</span>
-              <span class="off">-38%</span>
             </div>
-            <span class="deal-time">postado há <b class="mins">27</b> min no grupo</span>
           </div>
         </article>
 
         <article class="deal-card" data-min="41">
           <div class="deal-shot"><img src="assets/produtos/perfume.png" alt="Perfume Importado 200ml em oferta" loading="lazy"></div>
           <div class="deal-body">
-            <span class="deal-cat">Beleza</span>
+            <div class="deal-top">
+              <span class="deal-cat">Beleza</span>
+              <span class="off">-54%</span>
+            </div>
             <h3>Perfume Importado 200ml</h3>
+            <span class="deal-time">Postado há <b class="mins">41</b> min</span>
             <div class="deal-price">
               <span class="was">R$ 1.029,00</span>
               <span class="now">R$ 478,00</span>
-              <span class="off">-54%</span>
             </div>
-            <span class="deal-time">postado há <b class="mins">41</b> min no grupo</span>
           </div>
         </article>
       </div>
@@ -333,16 +341,17 @@
     var pct = 87;
     (function tick(){
       setTimeout(function(){
-        if(pct < 96){ pct += 1; sn.textContent = pct + '%'; sb.style.width = pct + '%'; }
+        if(pct < 96){ pct += 1; sn.textContent = pct + '% preenchidas'; sb.style.width = pct + '%'; }
         tick();
       }, rndInt(14000, 26000));
     })();
   }
 
   /* ---- 4. Entradas recentes no grupo ---- */
-  var NOMES = ['Ana Paula','Carlos','Juliana','Rafael','Bianca','Marcos','Fernanda','Diego',
-               'Patrícia','Lucas','Camila','Thiago','Aline','Rodrigo','Vanessa','Bruno',
-               'Larissa','Eduardo','Simone','Gustavo'];
+  var NOMES = ['Fernanda Lima','Carlos Andrade','Juliana Prado','Rafael Moura','Bianca Teixeira',
+               'Marcos Vinícius','Ana Paula Reis','Diego Fontes','Patrícia Nunes','Lucas Almeida',
+               'Camila Duarte','Thiago Barros','Aline Ferraz','Rodrigo Pires','Vanessa Rocha',
+               'Bruno Carvalho','Larissa Amorim','Eduardo Salles','Simone Bastos','Gustavo Neves'];
   var nEl = document.getElementById('joinName'),
       wEl = document.getElementById('joinWhen'),
       aEl = document.getElementById('joinAvatar'),
@@ -353,7 +362,10 @@
       var nome = NOMES[rndInt(0, NOMES.length-1)];
       row.classList.remove('in'); void row.offsetWidth; row.classList.add('in');
       nEl.textContent = nome;
-      if(aEl) aEl.textContent = nome.charAt(0);
+      if(aEl){
+        var partes = nome.split(' ');
+        aEl.textContent = (partes[0].charAt(0) + (partes[1] ? partes[1].charAt(0) : '')).toUpperCase();
+      }
       mins = 0; wEl.textContent = 'agora';
     };
     setInterval(function(){
