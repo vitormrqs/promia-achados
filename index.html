@@ -28,10 +28,7 @@
 
   <!-- ================= HERO ================= -->
   <section class="hero">
-    <div class="wrap hero-grid">
-
-     <!-- ---------- COLUNA ESQUERDA: apelo + CTA ---------- -->
-     <div class="hero-col">
+    <div class="wrap-narrow">
       <h1>Achadinhos com <em>descontos reais</em> direto no seu WhatsApp</h1>
       <p class="hero-sub">Entre grátis no grupo e receba as ofertas antes de acabar.</p>
 
@@ -68,20 +65,22 @@
         <li>🛠️ Ferramentas</li>
         <li>🍳 Utensílios</li>
       </ul>
-     </div>
+    </div>
+  </section>
 
-     <!-- ---------- COLUNA DIREITA: ofertas recentes ---------- -->
-     <!-- Para trocar pelas ofertas do dia: edite os .deal-card abaixo.
-          data-min = há quantos minutos a oferta foi postada no grupo. -->
-     <aside class="deals-col" id="ofertas">
-      <div class="deals-head">
+  <!-- ================= OFERTAS RECENTES ================= -->
+  <!-- Para trocar pelas ofertas do dia: edite os .deal-card abaixo.
+       data-min = há quantos minutos a oferta foi postada no grupo. -->
+  <section id="ofertas" class="ofertas-sec">
+    <div class="wrap">
+      <div class="section-head">
         <h2>Ofertas recentes no grupo</h2>
-        <p>Eletrônicos, moda, ferramentas e utensílios garimpados na Shopee e no Mercado Livre — com o cupom já aplicado no preço.</p>
+        <p>Eletrônicos, moda, ferramentas e utensílios garimpados na Shopee e no Mercado Livre — mais cupons fixados e prints de quem já economizou.</p>
       </div>
 
       <div class="deals">
         <article class="deal-card" data-min="6">
-          <div class="deal-shot"><img src="assets/produtos/monitor.png" alt="Monitor Portátil 15,6 polegadas em oferta com cupom" loading="lazy"></div>
+          <div class="deal-shot"><img src="assets/exemplos/monitor.png" alt="Post do grupo: Monitor Portátil 15,6 polegadas por R$ 303,00 com cupom MEUSMIMOS"></div>
           <div class="deal-body">
             <div class="deal-top">
               <span class="deal-cat">Eletrônicos</span>
@@ -98,7 +97,7 @@
         </article>
 
         <article class="deal-card" data-min="18">
-          <div class="deal-shot"><img src="assets/produtos/tenis.png" alt="Tênis Branco Feminino em oferta com cupons" loading="lazy"></div>
+          <div class="deal-shot"><img src="assets/exemplos/tenis.png" alt="Post do grupo: Tênis Branco Feminino de R$ 172,33 por R$ 81,95" loading="lazy"></div>
           <div class="deal-body">
             <div class="deal-top">
               <span class="deal-cat">Moda</span>
@@ -114,7 +113,7 @@
         </article>
 
         <article class="deal-card" data-min="27">
-          <div class="deal-shot"><img src="assets/produtos/kit-ferramentas.png" alt="Kit de Ferramentas 46 peças em oferta" loading="lazy"></div>
+          <div class="deal-shot"><img src="assets/exemplos/kit-ferramentas.png" alt="Post do grupo: Kit Ferramentas 46 peças de R$ 43,80 por R$ 27,15" loading="lazy"></div>
           <div class="deal-body">
             <div class="deal-top">
               <span class="deal-cat">Ferramentas</span>
@@ -130,7 +129,7 @@
         </article>
 
         <article class="deal-card" data-min="41">
-          <div class="deal-shot"><img src="assets/produtos/perfume.png" alt="Perfume Importado 200ml em oferta" loading="lazy"></div>
+          <div class="deal-shot"><img src="assets/exemplos/perfume.png" alt="Post do grupo: Perfume Importado 200ml de R$ 1.029,00 por R$ 478,00" loading="lazy"></div>
           <div class="deal-body">
             <div class="deal-top">
               <span class="deal-cat">Beleza</span>
@@ -144,11 +143,53 @@
             </div>
           </div>
         </article>
+
+        <article class="deal-card">
+          <div class="deal-shot"><img src="assets/exemplos/cupom-ml.png" alt="Cupom do Mercado Livre fixado no topo do grupo" loading="lazy"></div>
+          <div class="deal-body">
+            <div class="deal-top">
+              <span class="deal-cat is-cupom">Cupom fixado</span>
+              <span class="off">15% OFF</span>
+            </div>
+            <h3>Cupom Mercado Livre</h3>
+            <span class="deal-time">Fixado no topo do grupo</span>
+            <div class="deal-price">
+              <span class="plain">Acima de R$ 79 · desconto máx. R$ 60</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="deal-card">
+          <div class="deal-shot"><img src="assets/exemplos/carrinho.png" alt="Print de um seguidor: carrinho de R$ 324,22 fechado por R$ 159,81" loading="lazy"></div>
+          <div class="deal-body">
+            <div class="deal-top">
+              <span class="deal-cat is-print">Print de seguidor</span>
+              <span class="off">-51%</span>
+            </div>
+            <h3>Carrinho fechado com cupom</h3>
+            <span class="deal-time">Enviado por quem está no grupo</span>
+            <div class="deal-price">
+              <span class="was">R$ 324,22</span>
+              <span class="now">R$ 159,81</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="deal-card">
+          <div class="deal-shot"><img src="assets/exemplos/checkout.png" alt="Print de um seguidor: desconto do grupo aplicado no checkout" loading="lazy"></div>
+          <div class="deal-body">
+            <div class="deal-top">
+              <span class="deal-cat is-print">Print de seguidor</span>
+            </div>
+            <h3>Desconto aplicado no checkout</h3>
+            <span class="deal-time">Enviado por quem está no grupo</span>
+            <div class="deal-price">
+              <span class="plain">Cupom do grupo direto na finalização</span>
+            </div>
+          </div>
+        </article>
       </div>
-
-      <p class="deals-note">Ofertas reais já publicadas no grupo. Os preços mudam o tempo todo — as novas chegam primeiro por lá.</p>
-     </aside>
-
+      <p class="deals-note">Tudo publicado no grupo. Os preços mudam o tempo todo — as novas ofertas chegam primeiro por lá.</p>
     </div>
   </section>
 
@@ -212,48 +253,6 @@
     </div>
   </section>
 
-  <!-- ================= RELATOS E EXEMPLOS ================= -->
-  <section id="exemplos">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="kicker">Prova real</span>
-        <h2>Relatos de quem já economizou</h2>
-      </div>
-    </div>
-
-    <div class="carousel">
-      <article class="slide">
-        <div class="shot"><img src="assets/exemplos/carrinho.png" alt="Carrinho de compras de um seguidor com cupom aplicado, economia de R$165,08" loading="lazy"></div>
-        <div class="cap"><span class="tagline opiniao">Print de seguidor</span><b>51% de economia</b>De R$ 324,22 por R$ 159,81 juntando cupom + oferta</div>
-      </article>
-      <article class="slide">
-        <div class="shot"><img src="assets/exemplos/checkout.png" alt="Print do checkout de um seguidor com o desconto aplicado" loading="lazy"></div>
-        <div class="cap"><span class="tagline opiniao">Print de seguidor</span><b>Desconto na finalização</b>Cupom do grupo aplicado direto no checkout</div>
-      </article>
-      <article class="slide">
-        <div class="shot"><img src="assets/exemplos/cupom-ml.png" alt="Post de cupom do Mercado Livre fixado no grupo" loading="lazy"></div>
-        <div class="cap"><span class="tagline">Cupom fixado</span><b>Cupom Mercado Livre</b>15% OFF acima de R$ 79, máx. R$ 60</div>
-      </article>
-      <article class="slide">
-        <div class="shot"><img src="assets/exemplos/monitor.png" alt="Anúncio: Monitor Portátil 15,6 polegadas por R$303,00 com cupom MEUSMIMOS" loading="lazy"></div>
-        <div class="cap"><span class="tagline">Oferta + cupom</span><b>Monitor Portátil 15,6"</b>R$ 303,00 com cupom MEUSMIMOS</div>
-      </article>
-      <article class="slide">
-        <div class="shot"><img src="assets/exemplos/tenis.png" alt="Anúncio: Tênis Branco Feminino, de R$172,33 por R$81,95 com cupons SALDACASA e MEUSMIMOS" loading="lazy"></div>
-        <div class="cap"><span class="tagline">Oferta + cupom</span><b>Tênis Branco Feminino</b>De R$ 172,33 por R$ 81,95</div>
-      </article>
-      <article class="slide">
-        <div class="shot"><img src="assets/exemplos/perfume.png" alt="Anúncio: Perfume Importado 200ml, de R$1.029,00 por R$478,00" loading="lazy"></div>
-        <div class="cap"><span class="tagline">Oferta</span><b>Perfume Importado 200ml</b>De R$ 1.029,00 por R$ 478,00</div>
-      </article>
-      <article class="slide">
-        <div class="shot"><img src="assets/exemplos/kit-ferramentas.png" alt="Anúncio: Kit Ferramentas 46 peças, de R$43,80 por R$27,15" loading="lazy"></div>
-        <div class="cap"><span class="tagline">Oferta</span><b>Kit Ferramentas 46 peças</b>De R$ 43,80 por R$ 27,15</div>
-      </article>
-    </div>
-    <p class="swipe-hint">← arraste para ver mais →</p>
-  </section>
-
   <!-- ================= CTA FINAL ================= -->
   <section id="entrar" style="padding-top:8px;">
     <div class="wrap">
@@ -285,7 +284,6 @@
     <li><a href="detalhes.html#recursos">Recursos</a></li>
     <li><a href="detalhes.html#monitorar">#monitorar</a></li>
     <li><a href="detalhes.html#como-funciona">Como funciona</a></li>
-    <li><a href="#exemplos">Relatos</a></li>
     <li><a href="https://chat.whatsapp.com/D9WP1ZRPdM7AyRFibJAsS7" target="_blank" rel="noopener">Entrar no grupo</a></li>
   </ul>
   <p class="footer-note">© 2026 PromIA — cupons e achadinhos selecionados a dedo. Projeto independente, sem vínculo oficial com Shopee ou Mercado Livre. Alguns links são de afiliado.</p>

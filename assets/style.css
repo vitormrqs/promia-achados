@@ -580,27 +580,8 @@ footer{
   width:auto;height:42px;border-radius:0;object-fit:contain;display:block;
 }
 
-/* --- hero em 2 colunas --- */
-.hero{padding:34px 0 40px;}
-.hero-grid{
-  display:grid;grid-template-columns:1fr;gap:38px;
-}
-@media (min-width:980px){
-  .hero{padding:44px 0 52px;}
-  .hero-grid{
-    grid-template-columns:minmax(0,1.02fr) minmax(0,0.98fr);
-    gap:52px;align-items:start;
-  }
-  .hero-col{text-align:left;}
-  .hero-col h1{margin:0;max-width:13ch;}
-  .hero-col .hero-sub{margin-left:0;max-width:34ch;}
-  .hero-col .saved-box,
-  .hero-col .live-block{margin-left:0;margin-right:0;max-width:100%;}
-  .hero-col .cta-area{align-items:flex-start;}
-  .hero-col .btn-wa{max-width:380px;}
-  .hero-col .cat-chips{justify-content:flex-start;}
-  .hero-col .live-block{align-items:flex-start;}
-}
+/* --- hero --- */
+.hero{padding:34px 0 36px;}
 .hero h1{
   font-size:clamp(1.85rem,6.4vw,2.7rem);
   max-width:15ch;line-height:1.16;
@@ -694,39 +675,30 @@ footer{
   font-size:.8rem;font-weight:600;color:var(--navy);
 }
 
-/* --- coluna de ofertas recentes --- */
-.deals-col{text-align:left;}
-.deals-head{margin-bottom:16px;text-align:center;}
-.deals-head h2{font-size:clamp(1.35rem,4.4vw,1.7rem);}
-.deals-head p{margin:9px 0 0;color:var(--muted);font-size:.92rem;}
-@media (min-width:980px){
-  .deals-col{
-    background:rgba(255,255,255,.55);
-    border:1px solid var(--line);
-    border-radius:22px;padding:22px;
-  }
-  .deals-head{text-align:left;margin-bottom:18px;}
-  .deals-head p{font-size:.88rem;max-width:44ch;}
-}
+/* --- ofertas recentes --- */
+.ofertas-sec{padding-top:44px;}
+.ofertas-sec .section-head{margin-bottom:26px;}
 .deals{
-  display:flex;flex-direction:column;gap:12px;
+  display:grid;grid-template-columns:1fr;gap:14px;align-items:stretch;
 }
+@media (min-width:560px){.deals{grid-template-columns:repeat(2,1fr);}}
+@media (min-width:860px){.deals{grid-template-columns:repeat(3,1fr);}}
+@media (min-width:1060px){.deals{grid-template-columns:repeat(4,1fr);}}
 .deal-card{
-  display:flex;flex-direction:row;
+  display:flex;flex-direction:column;
   background:var(--surface);border:1px solid var(--line);
   border-radius:16px;overflow:hidden;
   box-shadow:0 16px 34px -30px rgba(11,31,58,.75);
 }
 .deal-shot{
-  flex:0 0 92px;height:92px;align-self:center;
-  margin:13px 0 13px 13px;
-  background:#fff;border:1px solid var(--line);border-radius:12px;
+  background:var(--blue-light);border-bottom:1px solid var(--line);
+  aspect-ratio:3/4;padding:8px;
   display:flex;align-items:center;justify-content:center;overflow:hidden;
 }
-.deal-shot img{width:100%;height:100%;object-fit:cover;display:block;}
+.deal-shot img{width:100%;height:100%;object-fit:contain;display:block;}
 .deal-body{
   display:flex;flex-direction:column;flex:1;min-width:0;
-  padding:13px 15px 14px;
+  padding:14px 16px 16px;
 }
 .deal-top{
   display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;
@@ -737,10 +709,12 @@ footer{
   background:var(--blue-light);color:var(--blue-deep);
   padding:4px 9px;border-radius:100px;
 }
+.deal-cat.is-print{background:rgba(37,211,102,.16);color:#0E7A3C;}
+.deal-cat.is-cupom{background:rgba(255,230,0,.35);color:var(--ml-ink);}
 .off{
   font-size:.74rem;font-weight:800;
   background:rgba(37,211,102,.14);color:#0E7A3C;
-  padding:4px 9px;border-radius:8px;
+  padding:4px 9px;border-radius:8px;white-space:nowrap;
 }
 .deal-body h3{font-size:1rem;line-height:1.3;margin:0 0 5px;}
 .deal-time{
@@ -765,11 +739,11 @@ footer{
 .deal-price .now{
   font-family:'Sora',sans-serif;font-weight:800;font-size:1.3rem;color:var(--blue-deep);
 }
+.deal-price .plain{font-size:.84rem;color:var(--muted);line-height:1.4;}
 .deals-note{
-  text-align:center;margin:16px auto 0;max-width:52ch;
-  font-size:.8rem;color:var(--muted);
+  text-align:center;margin:22px auto 0;max-width:56ch;
+  font-size:.83rem;color:var(--muted);
 }
-@media (min-width:980px){.deals-note{text-align:left;margin-left:0;}}
 
 /* --- checklist de benefícios --- */
 .benef-sec{padding-top:24px;}
