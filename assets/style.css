@@ -636,35 +636,8 @@ footer{
 
 /* --- prova social ao vivo --- */
 .live-block{
-  margin:22px auto 0;max-width:430px;
-  display:flex;flex-direction:column;align-items:center;gap:10px;
-}
-.live-title{
-  font-family:'IBM Plex Mono',monospace;font-size:.68rem;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
-}
-.join-card{
-  width:100%;
-  display:flex;align-items:center;gap:12px;
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:14px;padding:11px 14px;
-  box-shadow:0 14px 30px -28px rgba(11,31,58,.8);
-}
-.join-card.in{animation:joinIn .45s ease;}
-@keyframes joinIn{
-  from{opacity:0;transform:translateY(7px);} to{opacity:1;transform:none;}
-}
-.join-card .av{
-  width:38px;height:38px;border-radius:50%;flex:none;
-  background:var(--blue);color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Sora',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.02em;
-}
-.join-txt{display:flex;flex-direction:column;align-items:flex-start;line-height:1.3;min-width:0;}
-.join-txt b{font-size:.92rem;color:var(--ink);font-weight:600;}
-.join-txt i{font-style:normal;font-size:.78rem;color:var(--muted);}
-.join-when{
-  margin-left:auto;font-size:.75rem;color:var(--muted);white-space:nowrap;
+  margin:20px auto 0;max-width:430px;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
 }
 .live-pill{
   display:inline-flex;align-items:center;gap:8px;
@@ -673,7 +646,7 @@ footer{
   font-size:.82rem;font-weight:600;
 }
 .live-pill b{font-variant-numeric:tabular-nums;}
-.slots{width:100%;margin-top:2px;}
+.slots{width:100%;}
 .slots-top{
   display:flex;align-items:baseline;justify-content:space-between;gap:12px;
   font-size:.82rem;color:var(--muted);

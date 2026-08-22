@@ -40,22 +40,14 @@
 
       <!-- ---- Prova social ao vivo ---- -->
       <div class="live-block">
-        <span class="live-title">Entradas recentes no grupo</span>
-
-        <div class="join-card in">
-          <span class="av" id="joinAvatar">FL</span>
-          <span class="join-txt"><b id="joinName">Fernanda Lima</b><i>entrou no grupo</i></span>
-          <span class="join-when" id="joinWhen">agora</span>
-        </div>
-
         <span class="live-pill"><i class="dot"></i> <b id="viewersNum">13</b>&nbsp;pessoas vendo esta página agora</span>
 
         <div class="slots">
           <div class="slots-top">
             <span>Vagas de hoje:</span>
-            <b id="slotsNum">87% preenchidas</b>
+            <b id="slotsNum">&nbsp;</b>
           </div>
-          <span class="slots-bar"><i id="slotsBar" style="width:87%"></i></span>
+          <span class="slots-bar"><i id="slotsBar" style="width:0%"></i></span>
         </div>
       </div>
 
@@ -335,46 +327,18 @@
     })();
   }
 
-  /* ---- 3. Vagas de hoje (87% subindo até 96%) ---- */
+  /* ---- 3. Vagas de hoje: proporcional ao horário local (00:00 = 0%, 23:59 = 100%) ---- */
   var sn = document.getElementById('slotsNum'), sb = document.getElementById('slotsBar');
   if(sn && sb){
-    var pct = 87;
-    (function tick(){
-      setTimeout(function(){
-        if(pct < 96){ pct += 1; sn.textContent = pct + '% preenchidas'; sb.style.width = pct + '%'; }
-        tick();
-      }, rndInt(14000, 26000));
-    })();
-  }
-
-  /* ---- 4. Entradas recentes no grupo ---- */
-  var NOMES = ['Fernanda Lima','Carlos Andrade','Juliana Prado','Rafael Moura','Bianca Teixeira',
-               'Marcos Vinícius','Ana Paula Reis','Diego Fontes','Patrícia Nunes','Lucas Almeida',
-               'Camila Duarte','Thiago Barros','Aline Ferraz','Rodrigo Pires','Vanessa Rocha',
-               'Bruno Carvalho','Larissa Amorim','Eduardo Salles','Simone Bastos','Gustavo Neves'];
-  var nEl = document.getElementById('joinName'),
-      wEl = document.getElementById('joinWhen'),
-      aEl = document.getElementById('joinAvatar'),
-      row = document.querySelector('.live-join');
-  if(nEl && wEl && row){
-    var mins = 0;
-    var swap = function(){
-      var nome = NOMES[rndInt(0, NOMES.length-1)];
-      row.classList.remove('in'); void row.offsetWidth; row.classList.add('in');
-      nEl.textContent = nome;
-      if(aEl){
-        var partes = nome.split(' ');
-        aEl.textContent = (partes[0].charAt(0) + (partes[1] ? partes[1].charAt(0) : '')).toUpperCase();
-      }
-      mins = 0; wEl.textContent = 'agora';
+    var renderSlots = function(){
+      var d = new Date();
+      var pct = Math.round(((d.getHours()*60 + d.getMinutes()) / 1439) * 100);
+      if(pct > 100) pct = 100;
+      sn.textContent = pct + '% preenchidas';
+      sb.style.width = pct + '%';
     };
-    setInterval(function(){
-      mins++;
-      wEl.textContent = mins === 1 ? 'há 1 min' : 'há ' + mins + ' min';
-    }, 60000);
-    (function tick(){
-      setTimeout(function(){ swap(); tick(); }, rndInt(11000, 22000));
-    })();
+    renderSlots();
+    setInterval(renderSlots, 30000);
   }
 
   /* ---- 5. "postado há X min" das ofertas ---- */
