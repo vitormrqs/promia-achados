@@ -18,21 +18,41 @@
 </head>
 <body>
 
-<header class="topbar">
-  <div class="inner">
-    <a class="brand brand-logo" href="index.html"><img src="assets/logo-wordmark.png" alt="PromIA — Achados e Ofertas"></a>
-  </div>
-</header>
-
 <main>
 
   <!-- ================= HERO ================= -->
   <section class="hero">
     <div class="wrap-narrow">
-      <span class="eyebrow">🟢 Grupo gratuito no WhatsApp</span>
-
-      <h1>Achadinhos com <em>descontos reais</em> direto no seu WhatsApp</h1>
+      <img class="hero-logo" src="assets/logo-selo.png" alt="PromIA — Achados e Ofertas" width="150" height="150">
+      <h1>Achadinhos com <em>descontos reais</em> direto no seu <span class="excl">WhatsApp</span></h1>
       <p class="hero-sub">Entre grátis no grupo e receba as ofertas antes de acabar.</p>
+
+      <!-- ---- Contador de economia (valor base editável em data-base) ---- -->
+      <div class="saved-box">
+        <span class="saved-label">Economizados pelos membros</span>
+        <strong class="saved-value" id="savedValue" data-base="186122.54">R$ 186.122,54</strong>
+      </div>
+
+      <!-- ---- Prova social ao vivo ---- -->
+      <div class="live-block">
+        <span class="live-pill"><i class="dot"></i> <b id="viewersNum">13</b>&nbsp;pessoas vendo esta página agora</span>
+
+        <div class="slots">
+          <div class="slots-top">
+            <span>Vagas de hoje:</span>
+            <b id="slotsNum">&nbsp;</b>
+          </div>
+          <span class="slots-bar"><i id="slotsBar" style="width:0%"></i></span>
+        </div>
+      </div>
+
+      <div class="cta-area">
+        <a class="btn-wa" href="https://chat.whatsapp.com/D9WP1ZRPdM7AyRFibJAsS7" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.16 8.16 0 01-1.25-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 012.41 5.83c0 4.54-3.7 8.23-8.25 8.23z"/></svg>
+          Entrar no grupo grátis
+        </a>
+        <span class="trust">Entrada grátis — pra quem não fecha compra sem antes caçar cupom.</span>
+      </div>
 
       <ul class="cat-chips">
         <li>📱 Eletrônicos</li>
@@ -40,38 +60,6 @@
         <li>🛠️ Ferramentas</li>
         <li>🍳 Utensílios</li>
       </ul>
-
-      <div class="cta-area">
-        <a class="btn-wa" href="https://chat.whatsapp.com/D9WP1ZRPdM7AyRFibJAsS7" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.16 8.16 0 01-1.25-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 012.41 5.83c0 4.54-3.7 8.23-8.25 8.23z"/></svg>
-          Entrar no grupo grátis
-        </a>
-        <span class="trust">Sem custo, sem spam — só oferta boa.</span>
-      </div>
-
-      <!-- ---- Contador de economia ---- -->
-      <div class="saved-box">
-        <span class="saved-label">Economizados pelos membros</span>
-        <!-- Valor base editável em data-base (reais) -->
-        <strong class="saved-value" id="savedValue" data-base="186122.54">R$ 186.122,54</strong>
-        <span class="saved-foot"><i class="dot"></i> atualizando em tempo real</span>
-      </div>
-
-      <!-- ---- Prova social ao vivo ---- -->
-      <div class="live-row">
-        <div class="live-join in">
-          <span class="av" id="joinAvatar">A</span>
-          <span class="live-join-txt"><b id="joinName">Ana Paula</b> entrou no grupo</span>
-          <span class="live-when" id="joinWhen">agora</span>
-        </div>
-        <div class="live-badges">
-          <span class="live-pill"><i class="dot"></i> <b id="viewersNum">13</b>&nbsp;pessoas vendo esta página agora</span>
-          <div class="slots">
-            <span class="slots-label">Vagas de hoje: <b id="slotsNum">87%</b> preenchidas</span>
-            <span class="slots-bar"><i id="slotsBar" style="width:87%"></i></span>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -81,71 +69,124 @@
   <section id="ofertas" class="ofertas-sec">
     <div class="wrap">
       <div class="section-head">
-        <span class="kicker">Ofertas recentes no grupo</span>
-        <h2>Exemplos do que cai no grupo todo dia</h2>
-        <p>Eletrônicos, moda, ferramentas e utensílios garimpados na Shopee e no Mercado Livre — com o cupom já aplicado no preço.</p>
+        <h2>Ofertas recentes no grupo</h2>
+        <p>Eletrônicos, moda, ferramentas e utensílios garimpados na Shopee e no Mercado Livre — mais cupons fixados e prints de quem já economizou.</p>
       </div>
 
       <div class="deals">
         <article class="deal-card" data-min="6">
-          <div class="deal-shot"><img src="assets/produtos/monitor.png" alt="Monitor Portátil 15,6 polegadas em oferta com cupom" loading="lazy"></div>
+          <div class="deal-shot"><img src="assets/produtos/monitor.png" alt="Post do grupo: Monitor Portátil 15,6 polegadas por R$ 303,00 com cupom MEUSMIMOS"></div>
           <div class="deal-body">
-            <span class="deal-cat">Eletrônicos</span>
+            <div class="deal-top">
+              <span class="deal-cat">Eletrônicos</span>
+              <span class="off">-31%</span>
+            </div>
             <h3>Monitor Portátil 15,6"</h3>
+            <span class="deal-time">Postado há <b class="mins">6</b> min</span>
+            <span class="deal-coupon">cupom MEUSMIMOS</span>
             <div class="deal-price">
               <span class="was">R$ 439,99</span>
               <span class="now">R$ 303,00</span>
-              <span class="off">-31%</span>
             </div>
-            <span class="deal-coupon">cupom MEUSMIMOS</span>
-            <span class="deal-time">postado há <b class="mins">6</b> min no grupo</span>
           </div>
         </article>
 
         <article class="deal-card" data-min="18">
-          <div class="deal-shot"><img src="assets/produtos/tenis.png" alt="Tênis Branco Feminino em oferta com cupons" loading="lazy"></div>
+          <div class="deal-shot"><img src="assets/produtos/tenis.png" alt="Post do grupo: Tênis Branco Feminino de R$ 172,33 por R$ 81,95" loading="lazy"></div>
           <div class="deal-body">
-            <span class="deal-cat">Moda</span>
+            <div class="deal-top">
+              <span class="deal-cat">Moda</span>
+              <span class="off">-52%</span>
+            </div>
             <h3>Tênis Branco Feminino</h3>
+            <span class="deal-time">Postado há <b class="mins">18</b> min</span>
             <div class="deal-price">
               <span class="was">R$ 172,33</span>
               <span class="now">R$ 81,95</span>
-              <span class="off">-52%</span>
             </div>
-            <span class="deal-time">postado há <b class="mins">18</b> min no grupo</span>
           </div>
         </article>
 
         <article class="deal-card" data-min="27">
-          <div class="deal-shot"><img src="assets/produtos/kit-ferramentas.png" alt="Kit de Ferramentas 46 peças em oferta" loading="lazy"></div>
+          <div class="deal-shot"><img src="assets/produtos/kit-ferramentas.png" alt="Post do grupo: Kit Ferramentas 46 peças de R$ 43,80 por R$ 27,15" loading="lazy"></div>
           <div class="deal-body">
-            <span class="deal-cat">Ferramentas</span>
+            <div class="deal-top">
+              <span class="deal-cat">Ferramentas</span>
+              <span class="off">-38%</span>
+            </div>
             <h3>Kit Ferramentas 46 peças</h3>
+            <span class="deal-time">Postado há <b class="mins">27</b> min</span>
             <div class="deal-price">
               <span class="was">R$ 43,80</span>
               <span class="now">R$ 27,15</span>
-              <span class="off">-38%</span>
             </div>
-            <span class="deal-time">postado há <b class="mins">27</b> min no grupo</span>
           </div>
         </article>
 
         <article class="deal-card" data-min="41">
-          <div class="deal-shot"><img src="assets/produtos/perfume.png" alt="Perfume Importado 200ml em oferta" loading="lazy"></div>
+          <div class="deal-shot"><img src="assets/produtos/perfume.png" alt="Post do grupo: Perfume Importado 200ml de R$ 1.029,00 por R$ 408,99" loading="lazy"></div>
           <div class="deal-body">
-            <span class="deal-cat">Beleza</span>
+            <div class="deal-top">
+              <span class="deal-cat">Beleza</span>
+              <span class="off">-60%</span>
+            </div>
             <h3>Perfume Importado 200ml</h3>
+            <span class="deal-time">Postado há <b class="mins">41</b> min</span>
             <div class="deal-price">
               <span class="was">R$ 1.029,00</span>
-              <span class="now">R$ 478,00</span>
-              <span class="off">-54%</span>
+              <span class="now">R$ 408,99</span>
             </div>
-            <span class="deal-time">postado há <b class="mins">41</b> min no grupo</span>
+          </div>
+        </article>
+
+        <article class="deal-card">
+          <div class="deal-shot is-doc"><img src="assets/produtos/cupom-ml.png" alt="Cupom do Mercado Livre fixado no topo do grupo" loading="lazy"></div>
+          <div class="deal-body">
+            <div class="deal-top">
+              <span class="deal-cat is-cupom">Cupom fixado</span>
+              <span class="off">15% OFF</span>
+            </div>
+            <h3>Cupom Mercado Livre</h3>
+            <span class="deal-time">Fixado no topo do grupo</span>
+            <div class="deal-price">
+              <span class="plain">Acima de R$ 79 · desconto máx. R$ 60</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="deal-card">
+          <div class="deal-shot is-doc"><img src="assets/produtos/carrinho.png" alt="Print de um seguidor: carrinho de R$ 350,62 fechado por R$ 165,83, economia de R$ 184,79" loading="lazy"></div>
+          <div class="deal-body">
+            <div class="deal-top">
+              <span class="deal-cat is-print">Print de seguidor</span>
+              <span class="off">-53%</span>
+            </div>
+            <h3>Carrinho fechado com cupom</h3>
+            <span class="deal-time">Enviado por quem está no grupo</span>
+            <div class="deal-price">
+              <span class="was">R$ 350,62</span>
+              <span class="now">R$ 165,83</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="deal-card">
+          <div class="deal-shot is-doc"><img src="assets/produtos/checkout.png" alt="Print de um seguidor: desconto do grupo aplicado no checkout" loading="lazy"></div>
+          <div class="deal-body">
+            <div class="deal-top">
+              <span class="deal-cat is-print">Print de seguidor</span>
+              <span class="off">-51%</span>
+            </div>
+            <h3>Desconto aplicado no checkout</h3>
+            <span class="deal-time">Enviado por quem está no grupo</span>
+            <div class="deal-price">
+              <span class="was">R$ 324,49</span>
+              <span class="now">R$ 159,81</span>
+            </div>
           </div>
         </article>
       </div>
-
-      <p class="deals-note">Ofertas reais já publicadas no grupo. Os preços mudam o tempo todo — as novas chegam primeiro por lá.</p>
+      <p class="deals-note">Tudo publicado no grupo. Os preços mudam o tempo todo — as novas ofertas chegam primeiro por lá.</p>
     </div>
   </section>
 
@@ -163,7 +204,6 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.16 8.16 0 01-1.25-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 012.41 5.83c0 4.54-3.7 8.23-8.25 8.23z"/></svg>
           Quero receber as ofertas
         </a>
-        <span class="trust">+ de <b>44 mil</b> vendas geradas pelo grupo</span>
       </div>
     </div>
   </section>
@@ -209,48 +249,6 @@
     </div>
   </section>
 
-  <!-- ================= RELATOS E EXEMPLOS ================= -->
-  <section id="exemplos">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="kicker">Prova real</span>
-        <h2>Relatos de quem já economizou</h2>
-      </div>
-    </div>
-
-    <div class="carousel">
-      <article class="slide">
-        <div class="shot"><img src="assets/exemplos/carrinho.png" alt="Carrinho de compras de um seguidor com cupom aplicado, economia de R$165,08" loading="lazy"></div>
-        <div class="cap"><span class="tagline opiniao">Print de seguidor</span><b>51% de economia</b>De R$ 324,22 por R$ 159,81 juntando cupom + oferta</div>
-      </article>
-      <article class="slide">
-        <div class="shot"><img src="assets/exemplos/checkout.png" alt="Print do checkout de um seguidor com o desconto aplicado" loading="lazy"></div>
-        <div class="cap"><span class="tagline opiniao">Print de seguidor</span><b>Desconto na finalização</b>Cupom do grupo aplicado direto no checkout</div>
-      </article>
-      <article class="slide">
-        <div class="shot"><img src="assets/exemplos/cupom-ml.png" alt="Post de cupom do Mercado Livre fixado no grupo" loading="lazy"></div>
-        <div class="cap"><span class="tagline">Cupom fixado</span><b>Cupom Mercado Livre</b>15% OFF acima de R$ 79, máx. R$ 60</div>
-      </article>
-      <article class="slide">
-        <div class="shot"><img src="assets/exemplos/monitor.png" alt="Anúncio: Monitor Portátil 15,6 polegadas por R$303,00 com cupom MEUSMIMOS" loading="lazy"></div>
-        <div class="cap"><span class="tagline">Oferta + cupom</span><b>Monitor Portátil 15,6"</b>R$ 303,00 com cupom MEUSMIMOS</div>
-      </article>
-      <article class="slide">
-        <div class="shot"><img src="assets/exemplos/tenis.png" alt="Anúncio: Tênis Branco Feminino, de R$172,33 por R$81,95 com cupons SALDACASA e MEUSMIMOS" loading="lazy"></div>
-        <div class="cap"><span class="tagline">Oferta + cupom</span><b>Tênis Branco Feminino</b>De R$ 172,33 por R$ 81,95</div>
-      </article>
-      <article class="slide">
-        <div class="shot"><img src="assets/exemplos/perfume.png" alt="Anúncio: Perfume Importado 200ml, de R$1.029,00 por R$478,00" loading="lazy"></div>
-        <div class="cap"><span class="tagline">Oferta</span><b>Perfume Importado 200ml</b>De R$ 1.029,00 por R$ 478,00</div>
-      </article>
-      <article class="slide">
-        <div class="shot"><img src="assets/exemplos/kit-ferramentas.png" alt="Anúncio: Kit Ferramentas 46 peças, de R$43,80 por R$27,15" loading="lazy"></div>
-        <div class="cap"><span class="tagline">Oferta</span><b>Kit Ferramentas 46 peças</b>De R$ 43,80 por R$ 27,15</div>
-      </article>
-    </div>
-    <p class="swipe-hint">← arraste para ver mais →</p>
-  </section>
-
   <!-- ================= CTA FINAL ================= -->
   <section id="entrar" style="padding-top:8px;">
     <div class="wrap">
@@ -267,22 +265,21 @@
 
 </main>
 
-<!-- ================= BARRA FIXA (MOBILE) ================= -->
+<!-- ================= BARRA FIXA DE CTA ================= -->
 <div class="sticky-cta">
   <a class="btn-wa" href="https://chat.whatsapp.com/D9WP1ZRPdM7AyRFibJAsS7" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.16 8.16 0 01-1.25-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 012.41 5.83c0 4.54-3.7 8.23-8.25 8.23z"/></svg>
-    Entrar no grupo grátis
+    Quero receber os descontos agora
   </a>
 </div>
 
 <footer>
-  <a class="footer-brand brand-logo" href="index.html"><img src="assets/logo-wordmark.png" alt="PromIA"></a>
+  <a class="footer-brand brand-selo" href="index.html"><img src="assets/logo-selo.png" alt="PromIA"></a>
   <ul class="footer-links">
     <li><a href="#ofertas">Ofertas</a></li>
     <li><a href="detalhes.html#recursos">Recursos</a></li>
     <li><a href="detalhes.html#monitorar">#monitorar</a></li>
     <li><a href="detalhes.html#como-funciona">Como funciona</a></li>
-    <li><a href="#exemplos">Relatos</a></li>
     <li><a href="https://chat.whatsapp.com/D9WP1ZRPdM7AyRFibJAsS7" target="_blank" rel="noopener">Entrar no grupo</a></li>
   </ul>
   <p class="footer-note">© 2026 PromIA — cupons e achadinhos selecionados a dedo. Projeto independente, sem vínculo oficial com Shopee ou Mercado Livre. Alguns links são de afiliado.</p>
@@ -327,42 +324,18 @@
     })();
   }
 
-  /* ---- 3. Vagas de hoje (87% subindo até 96%) ---- */
+  /* ---- 3. Vagas de hoje: proporcional ao horário local (00:00 = 0%, 23:59 = 100%) ---- */
   var sn = document.getElementById('slotsNum'), sb = document.getElementById('slotsBar');
   if(sn && sb){
-    var pct = 87;
-    (function tick(){
-      setTimeout(function(){
-        if(pct < 96){ pct += 1; sn.textContent = pct + '%'; sb.style.width = pct + '%'; }
-        tick();
-      }, rndInt(14000, 26000));
-    })();
-  }
-
-  /* ---- 4. Entradas recentes no grupo ---- */
-  var NOMES = ['Ana Paula','Carlos','Juliana','Rafael','Bianca','Marcos','Fernanda','Diego',
-               'Patrícia','Lucas','Camila','Thiago','Aline','Rodrigo','Vanessa','Bruno',
-               'Larissa','Eduardo','Simone','Gustavo'];
-  var nEl = document.getElementById('joinName'),
-      wEl = document.getElementById('joinWhen'),
-      aEl = document.getElementById('joinAvatar'),
-      row = document.querySelector('.live-join');
-  if(nEl && wEl && row){
-    var mins = 0;
-    var swap = function(){
-      var nome = NOMES[rndInt(0, NOMES.length-1)];
-      row.classList.remove('in'); void row.offsetWidth; row.classList.add('in');
-      nEl.textContent = nome;
-      if(aEl) aEl.textContent = nome.charAt(0);
-      mins = 0; wEl.textContent = 'agora';
+    var renderSlots = function(){
+      var d = new Date();
+      var pct = Math.round(((d.getHours()*60 + d.getMinutes()) / 1439) * 100);
+      if(pct > 100) pct = 100;
+      sn.textContent = pct + '% preenchidas';
+      sb.style.width = pct + '%';
     };
-    setInterval(function(){
-      mins++;
-      wEl.textContent = mins === 1 ? 'há 1 min' : 'há ' + mins + ' min';
-    }, 60000);
-    (function tick(){
-      setTimeout(function(){ swap(); tick(); }, rndInt(11000, 22000));
-    })();
+    renderSlots();
+    setInterval(renderSlots, 30000);
   }
 
   /* ---- 5. "postado há X min" das ofertas ---- */
