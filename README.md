@@ -21,6 +21,8 @@ Comandos de apoio do `#monitorar`: `#alertas` (lista os monitoramentos), `#remov
 - Os três recursos do agente, com guia de uso, exemplos de mensagem e vídeo/banner de demonstração
 - Cupons sempre disponíveis das plataformas parceiras, fixados no topo do grupo
 - Top 3 das melhores opções para cada produto buscado
+- Ofertas recentes do grupo em destaque (eletrônicos, moda, ferramentas e utensílios)
+- Contador de economia acumulada pelos membros e sinais de atividade em tempo real
 - Exemplos reais de ofertas, cupons e prints de seguidores
 - Como funciona o processo de curadoria (monitoramento → seleção manual → publicação)
 - Acesso direto ao grupo do WhatsApp
@@ -35,13 +37,16 @@ Comandos de apoio do `#monitorar`: `#alertas` (lista os monitoramentos), `#remov
 
 ```
 promia-achados/
-├── index.html            # home: hero, carrossel de exemplos, índice de recursos, CTA
+├── index.html            # home: hero + contador de economia, ofertas recentes, benefícios, recursos, relatos, CTA
 ├── detalhes.html         # página de recursos: #monitorar, #procura, #procura shopee, cupons e como funciona
 ├── CNAME                 # domínio prom.ia.br
 └── assets/
-    ├── logo.png          # logo/selo do grupo
+    ├── logo-wordmark.png # logo (palavra PromIA) usado no topo e no rodapé
+    ├── logo-selo.png     # selo redondo, usado como favicon e imagem de compartilhamento
+    ├── logo.png          # selo antigo (mantido por compatibilidade)
     ├── style.css         # estilos das duas páginas
-    ├── exemplos/         # prints de ofertas, cupons e carrinho usados como exemplo
+    ├── exemplos/         # prints de ofertas, cupons e carrinho usados no carrossel de relatos
+    ├── produtos/         # fotos recortadas dos produtos usadas nos cards de "ofertas recentes"
     ├── gif/              # vídeo demo do #procura (procura-demo.mp4 + poster.jpg)
     └── promo/            # banners de divulgação dos recursos (ex.: monitorar.jpg)
 ```
@@ -63,6 +68,9 @@ Qualquer alteração enviada (commit) para a `main` atualiza o site automaticame
 ## Atualizando conteúdo
 
 - **Preços, cupons e textos:** editar diretamente no `index.html` (home) ou no `detalhes.html` (recursos)
+- **Ofertas recentes da home:** editar os blocos `.deal-card` na seção `#ofertas` do `index.html`. O atributo `data-min` é há quantos minutos a oferta foi postada no grupo (o número sobe sozinho enquanto a pessoa fica na página)
+- **Contador "Economizados pelos membros":** trocar o valor no atributo `data-base` do elemento `#savedValue` (em reais, com ponto decimal). O script incrementa a partir daí
+- **Prova social ao vivo:** os números iniciais (13 pessoas vendo, 87% das vagas) e a lista de nomes ficam no `<script>` no fim do `index.html`
 - **Novo recurso do agente:** criar um `.res-card` no `.res-index` das duas páginas + um bloco `.spotlight` com id próprio no `detalhes.html`, e adicionar o link na `.page-tabs` e no rodapé. Recurso recém-lançado recebe as classes `.is-new` e `.badge-new`
 - **Imagens de exemplo:** substituir os arquivos em `assets/exemplos/` mantendo os mesmos nomes, ou trocar os caminhos `src` correspondentes no HTML
 - **Vídeos e banners:** o vídeo demo fica em `assets/gif/` e os banners de divulgação em `assets/promo/` — ambos ocupam a coluna direita do `.spotlight` do recurso
