@@ -15,6 +15,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<!-- ===== Meta Pixel (Facebook / Instagram Ads) =====
+     Conjunto de dados (dataset) 2262492737927889 - conta do PromIA.
+     O ID aparece 2x abaixo: no fbq('init', ...) e na URL do <noscript>. -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2262492737927889');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=2262492737927889&ev=PageView&noscript=1"></noscript>
+<!-- ===== Fim do Meta Pixel ===== -->
 </head>
 <body>
 
@@ -354,6 +369,51 @@
   }
 })();
 </script>
+
+<!-- ===== Meta Pixel: evento Lead ao clicar em qualquer botao do WhatsApp ===== -->
+<script>
+(function () {
+  var SELETOR = 'a[href*="chat.whatsapp.com"]';
+  var contou = false;
+
+  function jaContou() {
+    if (contou) return true;
+    try { return sessionStorage.getItem('promia_lead') === '1'; } catch (e) { return false; }
+  }
+  function marcaContou() {
+    contou = true;
+    try { sessionStorage.setItem('promia_lead', '1'); } catch (e) {}
+  }
+  function ondeEsta(el) {
+    if (el.closest('.sticky-cta')) return 'barra-fixa';
+    if (el.closest('footer')) return 'rodape';
+    if (el.closest('.cta-final')) return 'cta-final';
+    if (el.closest('.cta-mid')) return 'cta-meio';
+    return 'cta-topo';
+  }
+
+  document.addEventListener('click', function (ev) {
+    var alvo = ev.target && ev.target.closest ? ev.target.closest(SELETOR) : null;
+    if (!alvo) return;
+
+    // 1 Lead por sessao. Apague o bloco abaixo se quiser contar todo clique.
+    if (jaContou()) return;
+    marcaContou();
+
+    try {
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: (alvo.textContent || 'Entrar no grupo').replace(/\s+/g, ' ').trim(),
+          content_category: 'grupo-whatsapp',
+          source: ondeEsta(alvo),
+          page: location.pathname
+        }, { eventID: 'lead-' + Date.now() + '-' + Math.random().toString(16).slice(2) });
+      }
+    } catch (e) {}
+  }, true);
+})();
+</script>
+<!-- ===== Fim do evento Lead ===== -->
 
 </body>
 </html>
