@@ -776,3 +776,26 @@ footer{
 
 /* --- barra fixa de CTA --- */
 .sticky-cta{margin-top:8px;}
+
+/* --- pagina legal (privacidade) --- */
+.legal{padding:6px 0 40px;}
+.legal .updated{font-size:.82rem;color:var(--muted);margin:0 0 22px;}
+.legal h2{font-size:1.1rem;margin:32px 0 10px;padding-top:24px;border-top:1px solid var(--blue-mist);}
+.legal h2:first-of-type{border-top:0;padding-top:0;margin-top:0;}
+.legal h3{font-size:.98rem;margin:22px 0 8px;color:var(--ink);}
+.legal p,.legal li{font-size:.94rem;color:var(--muted);line-height:1.75;}
+.legal p{margin:0 0 12px;}
+.legal ul{margin:0 0 14px;padding-left:20px;}
+.legal li{margin-bottom:7px;}
+.legal b{color:var(--ink);font-weight:600;}
+.legal a{color:var(--wa-green-dark);text-underline-offset:2px;}
+.legal code{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.86em;
+  background:var(--blue-light);border:1px solid var(--blue-mist);border-radius:6px;padding:1px 6px;color:var(--ink);}
+.legal-box{background:var(--blue-light);border:1px solid var(--blue-mist);
+  border-radius:14px;padding:16px 18px;margin:0 0 20px;}
+.legal-box p:last-child{margin-bottom:0;}
+.legal .table-wrap{overflow-x:auto;margin:0 0 18px;}
+.legal table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:420px;}
+.legal th,.legal td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--blue-mist);vertical-align:top;}
+.legal th{color:var(--ink);font-weight:600;}
+.legal td{color:var(--muted);}
