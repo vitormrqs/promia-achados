@@ -639,34 +639,6 @@ footer{
   100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
 }
 
-/* --- prova social ao vivo --- */
-.live-block{
-  margin:20px auto 0;max-width:430px;
-  display:flex;flex-direction:column;align-items:center;gap:14px;
-}
-.live-pill{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.28);
-  color:#0E7A3C;border-radius:100px;padding:8px 16px;
-  font-size:.82rem;font-weight:600;
-}
-.live-pill b{font-variant-numeric:tabular-nums;}
-.slots{width:100%;}
-.slots-top{
-  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
-  font-size:.82rem;color:var(--muted);
-}
-.slots-top b{color:#0E7A3C;font-weight:700;}
-.slots-bar{
-  display:block;height:8px;border-radius:100px;
-  background:var(--blue-mist);margin-top:8px;overflow:hidden;
-}
-.slots-bar i{
-  display:block;height:100%;border-radius:100px;
-  background:linear-gradient(90deg,var(--blue),var(--wa-green));
-  transition:width .6s ease;
-}
-
 /* --- CTA do hero e chips --- */
 .hero .cta-area{margin-top:26px;}
 .hero .trust{font-size:.85rem;color:var(--muted);}
@@ -678,6 +650,45 @@ footer{
   background:var(--surface);border:1px solid var(--line);
   border-radius:100px;padding:6px 12px;
   font-size:.8rem;font-weight:600;color:var(--navy);
+}
+
+.proof-title{
+  margin:24px 0 0;
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  font-family:'Sora',sans-serif;font-weight:700;
+  font-size:.95rem;color:var(--navy);
+}
+.proof-title span{font-size:1.12rem;line-height:1;}
+.proof-title + .hero-proof{margin-top:12px;}
+@media (min-width:560px){.proof-title + .hero-proof{margin-top:12px;}}
+
+/* --- provas sociais dentro do hero (cupom fixado + prints) --- */
+.hero-proof{
+  margin:26px -20px 0;padding:2px 20px 8px;
+  display:flex;gap:10px;align-items:stretch;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  text-align:left;
+}
+.hero-proof::-webkit-scrollbar{display:none;}
+.hero-proof .deal-card{flex:0 0 76%;max-width:250px;scroll-snap-align:center;}
+.hero-proof .deal-shot{aspect-ratio:4/3;}
+.hero-proof .deal-body{padding:11px 13px 13px;}
+.hero-proof .deal-body h3{font-size:.88rem;margin-bottom:4px;}
+.hero-proof .deal-cat{font-size:.56rem;padding:3px 7px;}
+.hero-proof .off{font-size:.66rem;padding:3px 7px;}
+.hero-proof .deal-top{margin-bottom:7px;}
+.hero-proof .deal-time{font-size:.68rem;line-height:1.35;}
+.hero-proof .deal-price{padding-top:9px;gap:8px;}
+.hero-proof .deal-price .now{font-size:1.02rem;}
+.hero-proof .deal-price .was{font-size:.73rem;}
+.hero-proof .deal-price .plain{font-size:.72rem;}
+@media (min-width:560px){
+  .hero-proof{
+    margin:26px auto 0;padding:0;max-width:660px;
+    display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;
+  }
+  .hero-proof .deal-card{flex:none;max-width:none;}
 }
 
 /* --- ofertas recentes --- */
