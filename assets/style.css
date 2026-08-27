@@ -53,8 +53,8 @@ a{color:inherit;}
 
 /* ---------- LOGO ---------- */
 .avatar{
-  width:clamp(140px,42vw,184px);
-  height:clamp(140px,42vw,184px);
+  width:clamp(280px,84vw,368px);
+  height:clamp(280px,84vw,368px);
   margin:0 auto 22px;
   border-radius:50%;
   padding:4px;
